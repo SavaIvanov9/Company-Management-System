@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C750003F-7F52-4B71-A3C7-EBA5600D516C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{539A0BD8-E390-4F28-AE71-4F6DF21A8F3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1A4B5938-E3C3-427A-A2D7-8DBDCAF2656B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9DDB453B-2B88-41DB-B622-5E2CC9760CE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C6FD724C-3F2A-4E8B-A6D0-44D84868241E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.DbModels", "CompanyManagementSystem.DbModels\CompanyManagementSystem.DbModels.csproj", "{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65} = {539A0BD8-E390-4F28-AE71-4F6DF21A8F3A}
+	EndGlobalSection
+EndGlobal

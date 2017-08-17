@@ -12,17 +12,18 @@
     {
         public void Start()
         {
-            var db = new ManagementSystemDbContext();
-            Console.WriteLine(db.Permissions.Count());
+            var db = new UnitOfWork();
+            Console.WriteLine(db.PermissionRepository.All().ToList().Count);
 
-            db.Permissions.Add(new Permission()
-            {
-                Code = "Read"
-            });
+            db.PermissionRepository
+                .Add(new Permission()
+                {
+                    Code = "Write"
+                });
 
             db.SaveChanges();
 
-            Console.WriteLine(db.Permissions.Count());
+            Console.WriteLine(db.PermissionRepository.All().ToList().Count);
         }
     }
 }

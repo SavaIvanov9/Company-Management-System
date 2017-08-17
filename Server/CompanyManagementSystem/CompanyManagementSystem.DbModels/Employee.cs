@@ -26,6 +26,8 @@
         public int Age { get; set; }
 
         [Required]
+        [Index("Email", IsUnique = true)]
+        [MaxLength(30)]
         public string Email { get; set; }
 
         public long? ManagerId { get; set; }

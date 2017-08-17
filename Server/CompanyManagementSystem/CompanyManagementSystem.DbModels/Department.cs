@@ -14,11 +14,11 @@
         }
 
         [Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
-        [Index(IsUnique = true)]
-        [MaxLength(30)]
         [Required]
+        [MaxLength(30)]
+        [Index("Name", IsUnique = true)]
         public string Name { get; set; }
 
         public virtual ICollection<Team> Teams

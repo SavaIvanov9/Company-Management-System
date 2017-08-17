@@ -1,12 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CompanyManagementSystem.DbModels
+﻿namespace CompanyManagementSystem.DbModels
 {
-    class Permission
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public class Permission
     {
+        private ICollection<Position> positions;
+
+        public Permission()
+        {
+            this.positions = new HashSet<Position>();
+        }
+
+        [Key]
+        public long Id { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        [Index("Code", IsUnique = true)]
+        public string Code { get; set; }
+
+        public virtual ICollection<Position> Positions
+        {
+            get => this.positions;
+            set => this.positions = value;
+        }
     }
 }

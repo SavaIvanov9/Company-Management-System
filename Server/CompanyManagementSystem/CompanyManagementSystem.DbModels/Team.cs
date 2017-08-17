@@ -16,9 +16,9 @@
         [Key]
         public long Id { get; set; }
 
-        [Index(IsUnique = true)]
-        [MaxLength(20)]
         [Required]
+        [MaxLength(20)]
+        [Index("Name", IsUnique = true)]
         public string Name { get; set; }
 
         [Required]
@@ -28,10 +28,10 @@
         [Required]
         public Department Department { get; set; }
 
-        public virtual ICollection<Employee> Employees
+        public ICollection<Employee> Employees
         {
-            get { return this.employees; }
-            set { this.employees = value; }
+            get => this.employees;
+            set => this.employees = value;
         }
     }
 }

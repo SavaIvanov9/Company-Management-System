@@ -18,9 +18,9 @@
         [Key]
         public long Id { get; set; }
 
-        [Index(IsUnique = true)]
-        [MaxLength(20)]
         [Required]
+        [MaxLength(20)]
+        [Index("Name", IsUnique = true)]
         public string Name { get; set; }
 
         public virtual ICollection<Employee> Employees

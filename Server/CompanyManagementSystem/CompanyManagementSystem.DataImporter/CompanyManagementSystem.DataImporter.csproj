@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CompanyManagementSystem.DbModels</RootNamespace>
-    <AssemblyName>CompanyManagementSystem.DbModels</AssemblyName>
+    <ProjectGuid>{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CompanyManagementSystem.DataImporter</RootNamespace>
+    <AssemblyName>CompanyManagementSystem.DataImporter</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,16 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Department.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Permission.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="ImporterEngine.cs" />
+    <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj">
+      <Project>{1248aa7b-b368-47d4-b979-98d2069af7b9}</Project>
+      <Name>CompanyManagementSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyManagementSystem.DbModels\CompanyManagementSystem.DbModels.csproj">
+      <Project>{d1a8af87-9ce9-4140-8f9c-3aa1eac76e65}</Project>
+      <Name>CompanyManagementSystem.DbModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

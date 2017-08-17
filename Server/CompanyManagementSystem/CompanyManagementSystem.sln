@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.DbModels", "CompanyManagementSystem.DbModels\CompanyManagementSystem.DbModels.csproj", "{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.Data", "CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj", "{1248AA7B-B368-47D4-B979-98D2069AF7B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.DataImporter", "CompanyManagementSystem.DataImporter\CompanyManagementSystem.DataImporter.csproj", "{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +29,21 @@ Global
 		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1248AA7B-B368-47D4-B979-98D2069AF7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1248AA7B-B368-47D4-B979-98D2069AF7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1248AA7B-B368-47D4-B979-98D2069AF7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1248AA7B-B368-47D4-B979-98D2069AF7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6606E2-10A3-4309-A7C1-DE05229C0BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65} = {539A0BD8-E390-4F28-AE71-4F6DF21A8F3A}
+		{1248AA7B-B368-47D4-B979-98D2069AF7B9} = {539A0BD8-E390-4F28-AE71-4F6DF21A8F3A}
+		{AD6606E2-10A3-4309-A7C1-DE05229C0BA8} = {539A0BD8-E390-4F28-AE71-4F6DF21A8F3A}
 	EndGlobalSection
 EndGlobal

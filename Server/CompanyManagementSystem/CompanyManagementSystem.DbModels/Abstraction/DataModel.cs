@@ -11,6 +11,9 @@
             this.IsDeleted = false;
         }
 
+        [Key]
+        public long Id { get; set; }
+
         [Required]
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }

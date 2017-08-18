@@ -14,9 +14,6 @@
             this.positions = new HashSet<Position>();
         }
 
-        [Key]
-        public long Id { get; set; }
-
         [Required]
         [MaxLength(20)]
         [Index("Code", IsUnique = true)]

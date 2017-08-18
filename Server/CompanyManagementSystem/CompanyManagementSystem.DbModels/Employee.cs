@@ -14,9 +14,6 @@
             this.teams = new HashSet<Team>();
         }
 
-        [Key]
-        public long Id { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 

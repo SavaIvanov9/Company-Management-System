@@ -4,6 +4,8 @@
 
     public interface IDataModel
     {
+        long Id { get; set; }
+
         string CreatedBy { get; set; }
         DateTime CreatedOn { get; set; }
 

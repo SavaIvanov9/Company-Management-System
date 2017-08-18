@@ -14,9 +14,6 @@
             this.employees = new HashSet<Employee>();
         }
 
-        [Key]
-        public long Id { get; set; }
-
         [Required]
         [MaxLength(20)]
         [Index("Name", IsUnique = true)]

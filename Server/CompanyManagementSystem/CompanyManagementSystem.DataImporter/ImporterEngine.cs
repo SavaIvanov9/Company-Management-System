@@ -22,6 +22,13 @@
                     CreatedBy = "S"
                 });
 
+            db.PermissionRepository
+                .Add(new Permission()
+                {
+                    Code = "Read",
+                    CreatedBy = "S"
+                });
+
             db.SaveChanges();
 
             Console.WriteLine(db.PermissionRepository.All().ToList().Count);

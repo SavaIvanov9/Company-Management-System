@@ -11,7 +11,7 @@
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ManagementSystemDbContext, Configuration>());
 
-            Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
         }
 
         public virtual IDbSet<Employee> Employees { get; set; }
@@ -51,7 +51,7 @@
                 .WithMany(pe => pe.Positions)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey("Positiond");
+                    cs.MapLeftKey("PositionId");
                     cs.MapRightKey("PermissionId");
                     cs.ToTable("PositionsPermissions");
                 });

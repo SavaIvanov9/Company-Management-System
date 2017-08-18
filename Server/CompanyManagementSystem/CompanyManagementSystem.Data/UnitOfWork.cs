@@ -8,8 +8,8 @@
 
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IManagementSystemDbContext _context;
-        private readonly IDictionary<Type, object> _repositories;
+        private readonly IManagementSystemDbContext context;
+        private readonly IDictionary<Type, object> repositories;
 
         public UnitOfWork()
             : this(new ManagementSystemDbContext())
@@ -18,8 +18,8 @@
 
         public UnitOfWork(IManagementSystemDbContext context)
         {
-            this._context = context;
-            this._repositories = new Dictionary<Type, object>();
+            this.context = context;
+            this.repositories = new Dictionary<Type, object>();
         }
 
         public EmployeeRepository EmployeeRepository =>
@@ -39,23 +39,23 @@
 
         public int SaveChanges()
         {
-            return this._context.SaveChanges();
+            return this.context.SaveChanges();
         }
 
         private IRepository<T> GetRepository<T>() where T : class
         {
             var repositoryType = typeof(T);
 
-            if (!this._repositories.ContainsKey(repositoryType))
+            if (!this.repositories.ContainsKey(repositoryType))
             {
                 var type = typeof(GenericRepository<T>);
 
                 this.SetType(repositoryType, ref type);
 
-                this._repositories.Add(repositoryType, Activator.CreateInstance(type, this._context));
+                this.repositories.Add(repositoryType, Activator.CreateInstance(type, this.context));
             }
 
-            return (IRepository<T>)this._repositories[repositoryType];
+            return (IRepository<T>)this.repositories[repositoryType];
         }
 
         private void SetType(Type repositoryType, ref Type type)

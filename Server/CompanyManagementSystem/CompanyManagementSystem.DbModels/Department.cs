@@ -3,8 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Abstraction;
 
-    public class Department
+    public class Department : DataModel
     {
         private ICollection<Team> teams;
 

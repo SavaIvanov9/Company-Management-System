@@ -3,14 +3,15 @@
     using System.Data.Entity;
     using Abstraction;
     using DbModels;
+    using Migrations;
 
     public class ManagementSystemDbContext : DbContext, IManagementSystemDbContext
     {
         public ManagementSystemDbContext() : base("CompanyManagementSystem")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<ManagementSystemDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ManagementSystemDbContext, Configuration>());
 
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
         }
 
         public virtual IDbSet<Employee> Employees { get; set; }

@@ -18,7 +18,8 @@
             db.PermissionRepository
                 .Add(new Permission()
                 {
-                    Code = "Write"
+                    Code = "Write",
+                    CreatedBy = "S"
                 });
 
             db.SaveChanges();

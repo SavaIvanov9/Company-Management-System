@@ -3,8 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Abstraction;
 
-    public class Permission
+    public class Permission : DataModel
     {
         private ICollection<Position> positions;
 

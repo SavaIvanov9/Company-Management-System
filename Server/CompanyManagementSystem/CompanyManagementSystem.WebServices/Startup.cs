@@ -41,7 +41,7 @@
 
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IPermissionService, PermissionService>();
-            services.AddTransient<IPositionService, IPositionService>();
+            services.AddTransient<IPositionService, PositionService>();
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<IDepartmentService, DepartmentService>();
         }

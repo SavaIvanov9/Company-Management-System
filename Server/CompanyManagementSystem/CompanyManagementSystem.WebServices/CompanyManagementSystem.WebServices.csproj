@@ -18,5 +18,9 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyManagementSystem.DataTransferModels\CompanyManagementSystem.DataTransferModels.csproj" />
+    <ProjectReference Include="..\CompanyManagementSystem.Services\CompanyManagementSystem.Services.csproj" />
+  </ItemGroup>
 
 </Project>

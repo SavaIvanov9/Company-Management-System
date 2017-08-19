@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.DataTransferModels", "CompanyManagementSystem.DataTransferModels\CompanyManagementSystem.DataTransferModels.csproj", "{A85DD7EE-260C-409E-B041-C73C51688096}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.ModelMapping", "CompanyManagementSystem.ModelMapping\CompanyManagementSystem.ModelMapping.csproj", "{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{A85DD7EE-260C-409E-B041-C73C51688096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85DD7EE-260C-409E-B041-C73C51688096}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85DD7EE-260C-409E-B041-C73C51688096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 		{85C743C1-069C-4B60-9EEA-839149F9C1FA} = {1A4B5938-E3C3-427A-A2D7-8DBDCAF2656B}
 		{6A9F1A77-1C9A-4A79-AADA-0BB1ED04799C} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 		{A85DD7EE-260C-409E-B041-C73C51688096} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
+		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 	EndGlobalSection
 EndGlobal

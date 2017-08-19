@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6A9F1A77-1C9A-4A79-AADA-0BB1ED04799C}</ProjectGuid>
+    <ProjectGuid>{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CompanyManagementSystem.Services</RootNamespace>
-    <AssemblyName>CompanyManagementSystem.Services</AssemblyName>
+    <RootNamespace>CompanyManagementSystem.ModelMapping</RootNamespace>
+    <AssemblyName>CompanyManagementSystem.ModelMapping</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,28 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\IEmployeeService.cs" />
-    <Compile Include="Base\BaseService.cs" />
-    <Compile Include="EmployeeService.cs" />
+    <Compile Include="Abstraction\IDepartmentMapper.cs" />
+    <Compile Include="Abstraction\IEmployeeMapper.cs" />
+    <Compile Include="Abstraction\IPermissionMapper.cs" />
+    <Compile Include="Abstraction\IPossitionMapper.cs" />
+    <Compile Include="Abstraction\ITeamMapper.cs" />
+    <Compile Include="EmployeeMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CompanyManagementSystem.DataTransferModels\CompanyManagementSystem.DataTransferModels.csproj">
-      <Project>{a85dd7ee-260c-409e-b041-c73c51688096}</Project>
+      <Project>{A85DD7EE-260C-409E-B041-C73C51688096}</Project>
       <Name>CompanyManagementSystem.DataTransferModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj">
-      <Project>{1248aa7b-b368-47d4-b979-98d2069af7b9}</Project>
-      <Name>CompanyManagementSystem.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CompanyManagementSystem.DbModels\CompanyManagementSystem.DbModels.csproj">
-      <Project>{d1a8af87-9ce9-4140-8f9c-3aa1eac76e65}</Project>
+      <Project>{D1A8AF87-9CE9-4140-8F9C-3AA1EAC76E65}</Project>
       <Name>CompanyManagementSystem.DbModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CompanyManagementSystem.ModelMapping\CompanyManagementSystem.ModelMapping.csproj">
-      <Project>{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}</Project>
-      <Name>CompanyManagementSystem.ModelMapping</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

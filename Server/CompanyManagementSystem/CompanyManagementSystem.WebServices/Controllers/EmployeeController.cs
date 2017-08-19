@@ -1,12 +1,12 @@
 ﻿namespace CompanyManagementSystem.WebServices.Controllers
 {
+    using System.Linq;
     using Abstraction;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Routing;
     using Services.Abstraction;
 
-    [Route("api/[controller]")]
-    public class EmployeeController : Controller//: BaseController
+    public class EmployeeController : BaseController
     {
         private readonly IEmployeeService service;
 
@@ -16,10 +16,11 @@
         }
 
         [HttpGet]
-        //[Route("api/Employee/GetAll")]
         public IActionResult Get()
         {
-            var result = this.service.GetAll();
+            var result = this.service
+                .GetAll()
+                .ToList();
 
             return this.Ok(result);
         }

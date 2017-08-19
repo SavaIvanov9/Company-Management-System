@@ -7,6 +7,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using ModelMapping;
+    using ModelMapping.Abstraction;
     using Services;
     using Services.Abstraction;
 
@@ -30,8 +32,9 @@
             // Add framework services.
             services.AddMvc();
 
-            services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IEmployeeMapper, EmployeeMapper>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

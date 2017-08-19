@@ -20,16 +20,16 @@
             this.mapper = mapper;
         }
 
-        public IEnumerable<EmployeeReadModel> GetAll()
+        public IEnumerable<Employee> GetAll()
         {
             var result = this.data.EmployeeRepository
-                    .All()
-                    .Where(x => !x.IsDeleted)
+                .All()
+                .Where(x => !x.IsDeleted);
                //.Select(x => new EmployeeReadModel()
                //{
                //   
                //});
-               .Select(this.mapper.MapDbModelToDtm());
+               //.Select(this.mapper.MapDbModelToDtm());
 
             return result;
         }

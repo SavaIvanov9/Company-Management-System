@@ -1,5 +1,6 @@
 ﻿namespace CompanyManagementSystem.DataTransferModels.Employee
 {
+    using Position;
     using System.Collections.Generic;
     using Team;
 
@@ -19,7 +20,7 @@
 
         long PositionId { get; set; }
 
-        IEmployeeModel Position { get; set; }
+        PositionReadModel Position { get; set; }
 
         ICollection<ITeamModel> Teams { get; set; }
     }

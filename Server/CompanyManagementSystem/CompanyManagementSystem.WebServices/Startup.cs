@@ -21,7 +21,8 @@
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
+
+            this.Configuration = builder.Build();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -33,8 +34,16 @@
             services.AddMvc();
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+
             services.AddTransient<IEmployeeMapper, EmployeeMapper>();
+            services.AddTransient<IPermissionMapper, PermissionMapper>();
+            services.AddTransient<IPositionMapper, PositionMapper>();
+
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<IPositionService, IPositionService>();
+            services.AddTransient<ITeamService, TeamService>();
+            services.AddTransient<IDepartmentService, DepartmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

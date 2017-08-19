@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.ModelMapping", "CompanyManagementSystem.ModelMapping\CompanyManagementSystem.ModelMapping.csproj", "{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestGround", "ConsoleTestGround\ConsoleTestGround.csproj", "{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{6A9F1A77-1C9A-4A79-AADA-0BB1ED04799C} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 		{A85DD7EE-260C-409E-B041-C73C51688096} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
+		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E} = {9DDB453B-2B88-41DB-B622-5E2CC9760CE4}
 	EndGlobalSection
 EndGlobal

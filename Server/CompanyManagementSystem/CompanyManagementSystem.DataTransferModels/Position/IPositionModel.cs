@@ -9,7 +9,7 @@ namespace CompanyManagementSystem.DataTransferModels.Position
     {
         string Name { get; set; }
 
-        ICollection<IEmployeeModel> Employees { get; set; }
-        ICollection<IPermissionModel> Permissions { get; set; }
+        ICollection<EmployeeReadModel> Employees { get; set; }
+        ICollection<PermissionReadModel> Permissions { get; set; }
     }
 }

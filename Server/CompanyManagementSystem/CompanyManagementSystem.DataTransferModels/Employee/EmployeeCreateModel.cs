@@ -1,6 +1,7 @@
 ﻿namespace CompanyManagementSystem.DataTransferModels.Employee
 {
     using Abstraction;
+    using Position;
     using System;
     using System.Collections.Generic;
     using Team;
@@ -22,7 +23,7 @@
         public long? ManagerId { get; set; }
         public IEmployeeModel Manager { get; set; }
         public long PositionId { get; set; }
-        public IEmployeeModel Position { get; set; }
+        public PositionReadModel Position { get; set; }
         public ICollection<ITeamModel> Teams { get; set; }
     }
 }

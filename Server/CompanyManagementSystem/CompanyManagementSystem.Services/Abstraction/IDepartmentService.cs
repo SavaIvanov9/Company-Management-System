@@ -1,11 +1,10 @@
 ﻿namespace CompanyManagementSystem.Services.Abstraction
 {
-    using DataTransferModels.Employee;
     using System.Collections.Generic;
     using DbModels;
 
-    public interface IEmployeeService
+    public interface IDepartmentService
     {
-        IEnumerable<Employee> GetAll();
+        IEnumerable<Department> GetAll();
     }
 }

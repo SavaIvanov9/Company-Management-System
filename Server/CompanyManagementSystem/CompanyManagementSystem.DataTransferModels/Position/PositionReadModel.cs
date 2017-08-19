@@ -9,8 +9,8 @@
     {
         public string Name { get; set; }
 
-        public ICollection<IEmployeeModel> Employees { get; set; }
+        public ICollection<EmployeeReadModel> Employees { get; set; }
 
-        public ICollection<IPermissionModel> Permissions { get; set; }
+        public ICollection<PermissionReadModel> Permissions { get; set; }
     }
 }

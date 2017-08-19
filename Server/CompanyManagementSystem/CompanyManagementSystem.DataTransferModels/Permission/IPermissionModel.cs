@@ -7,6 +7,6 @@
     {
         string Code { get; set; }
 
-        ICollection<IPositionModel> Positions { get; set; }
+        ICollection<PositionReadModel> Positions { get; set; }
     }
 }

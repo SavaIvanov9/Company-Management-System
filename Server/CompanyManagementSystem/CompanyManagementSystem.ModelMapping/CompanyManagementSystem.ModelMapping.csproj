@@ -43,8 +43,10 @@
     <Compile Include="Abstraction\IDepartmentMapper.cs" />
     <Compile Include="Abstraction\IEmployeeMapper.cs" />
     <Compile Include="Abstraction\IPermissionMapper.cs" />
-    <Compile Include="Abstraction\IPossitionMapper.cs" />
+    <Compile Include="Abstraction\IPositionMapper.cs" />
     <Compile Include="Abstraction\ITeamMapper.cs" />
+    <Compile Include="PositionMapper.cs" />
+    <Compile Include="PermissionMapper.cs" />
     <Compile Include="EmployeeMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

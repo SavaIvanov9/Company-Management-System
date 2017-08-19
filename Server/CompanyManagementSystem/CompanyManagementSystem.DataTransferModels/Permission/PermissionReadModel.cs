@@ -8,6 +8,6 @@
     {
         public string Code { get; set; }
 
-        public ICollection<IPositionModel> Positions { get; set; }
+        public ICollection<PositionReadModel> Positions { get; set; }
     }
 }

@@ -5,11 +5,11 @@
     using Services.Abstraction;
     using System.Linq;
 
-    public class PositionController : BaseController
+    public class TeamController : BaseController
     {
-        private readonly IPositionService service;
+        private readonly ITeamService service;
 
-        public PositionController(IPositionService service)
+        public TeamController(ITeamService service)
         {
             this.service = service;
         }

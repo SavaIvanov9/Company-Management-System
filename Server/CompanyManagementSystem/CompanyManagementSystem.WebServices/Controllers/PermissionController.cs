@@ -1,15 +1,15 @@
 ﻿namespace CompanyManagementSystem.WebServices.Controllers
 {
+    using System.Linq;
     using Abstraction;
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
-    using System.Linq;
 
-    public class PositionController : BaseController
+    public class PermissionController : BaseController
     {
-        private readonly IPositionService service;
+        private readonly IPermissionService service;
 
-        public PositionController(IPositionService service)
+        public PermissionController(IPermissionService service)
         {
             this.service = service;
         }

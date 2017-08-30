@@ -16,7 +16,7 @@ import { loginRouting } from './login-routing.module';
     ],
     declarations: [
         LoginComponent,
-        //LoginFormComponent
+        LoginFormComponent
     ],
     providers: [
         //LoginService,

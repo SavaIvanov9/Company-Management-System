@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { TabMenuModule, MenuItem } from 'primeng/primeng';
+
 //import { RouterOutlet } from '@angular/router';
 
 // @Component({

@@ -180,13 +180,9 @@ div.hoverDiv:hover {
     margin-top: 15%
 }
 
-
-
-
-    .fix-height{
-        height: 620px;
-    }
-
+.fix-height{
+    height: 620px;
+}
 
 @media(min-width:1500px){
     .fix-height{

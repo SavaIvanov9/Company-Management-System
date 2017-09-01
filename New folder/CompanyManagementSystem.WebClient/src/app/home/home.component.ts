@@ -10,7 +10,7 @@ import { PanelMenuModule, MenuItem } from 'primeng/primeng';
 })
 
 export class HomeComponent implements OnInit {
-
+    private toggled: boolean;
     items: MenuItem[];
 
     constructor() {
@@ -32,6 +32,21 @@ export class HomeComponent implements OnInit {
         //     { label: 'Support', icon: 'fa-support' },
         //     { label: 'Social', icon: 'fa-twitter' }
         // ];
+    }
+
+    HideNav() {
+        if (this.CalcDisplayWidth() < 768) {
+            this.toggled = false;
+        } else {
+        }
+    }
+
+    ToggleNavbar() {
+        this.toggled = !this.toggled;
+    }
+
+    CalcDisplayWidth() {
+        return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     }
 }
 

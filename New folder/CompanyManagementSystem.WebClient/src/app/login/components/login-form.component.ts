@@ -87,6 +87,7 @@ export class LoginFormComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log('Login form')
         this.GetWinAuth();
         //this.cookieOptionsArgs.expires = new Date(new Date().getTime() + 180 * 60000);
         this.isLogging = false;

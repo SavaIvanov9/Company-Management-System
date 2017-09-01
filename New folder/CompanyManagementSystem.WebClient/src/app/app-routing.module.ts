@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 //import { publicRoutes } from './public/public.routes';
 import { loginRoutes } from './login/login-routing.module';
+//import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login/components/login-form.component';
 
 // import { AuthGuard } from './route-guard.service';
 
-export const appRoutes: Routes = [
-    // {
-    //     path: 'admin',
-    //     loadChildren: 'app/admin/admin.module#AdminModule'
-    // },
+
+// const routes: Routes = [
+//     //   { path: '', redirectTo: 'home', pathMatch: 'full' },
+//     // { path: '', redirectTo: 'login', pathMatch: 'full' },
+//     { path: 'login', component: LoginFormComponent },
+//     //   { path: 'users', loadChildren: './users/users.module#UsersModule' }
+// ];
+
+const routes: Routes = [
     {
         path: 'auth',
         children: [...loginRoutes]
@@ -24,10 +30,16 @@ export const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes, { useHash: false })
+        RouterModule.forRoot(routes, { useHash: false })
     ],
     exports: [
         RouterModule
     ],
 })
+
+// @NgModule({
+//     imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+//     exports: [RouterModule]
+// })
+
 export class AppRoutingModule { }

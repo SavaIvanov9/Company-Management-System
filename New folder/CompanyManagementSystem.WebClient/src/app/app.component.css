@@ -1,0 +1,16 @@
+.navbar{
+  height: 120px;
+}
+
+.navbar-nav {
+  display: table;
+  float: none;
+  margin: 0 auto;
+  table-layout: fixed;
+  font-size: 1.25em;
+}
+.navbar-nav>li {
+  width: 20px;
+  height: 30px;
+  margin-right: 100px;
+}

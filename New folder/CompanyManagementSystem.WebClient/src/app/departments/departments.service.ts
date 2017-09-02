@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export class DepartmentsService {
 
   departments = [
-    {name : "R&D"},
-    {name : "HR"}
+    {name : "R&D", id : 1},
+    {name : "HR", id : 2}
   ]
 
   getDepartments() {

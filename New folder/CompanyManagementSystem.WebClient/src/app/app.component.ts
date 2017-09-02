@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { MenuItem, TabMenuModule } from 'primeng/primeng';
 
-import { TabMenuModule, MenuItem } from 'primeng/primeng';
+import { Component } from '@angular/core';
 
 //import { RouterOutlet } from '@angular/router';
 
@@ -15,7 +15,8 @@ import { TabMenuModule, MenuItem } from 'primeng/primeng';
 
 @Component({
     selector: 'app-root',
-    template: `<router-outlet></router-outlet>`
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     title = 'CompanySystem';

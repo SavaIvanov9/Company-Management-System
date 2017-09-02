@@ -10,12 +10,12 @@ import { DepartmentsService } from './departments.service';
 export class DepartmentsComponent implements OnInit {
   departments = [];
 
-  constructor(private departmentsService:DepartmentsService) { }
+  constructor(private departmentsService: DepartmentsService) { }
 
   ngOnInit() {
     this.departmentsService
-    .getDepartments()
-    .then(departments => this.departments = departments);
-}
+      .getDepartments()
+      .then(departments => this.departments = departments);
+  }
 
 }

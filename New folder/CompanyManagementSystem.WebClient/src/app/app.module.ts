@@ -1,25 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { DepartmentsComponent } from './departments/departments.component';
+import { DepartmentsService } from './departments/departments.service';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/components/login-form.component';
-import { AppComponent } from './app.component';
-
-import { AppRoutingModule } from './app-routing.module';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    DepartmentsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [DepartmentsService],
   bootstrap: [AppComponent]
 
 })

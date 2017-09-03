@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-//import { publicRoutes } from './public/public.routes';
-import { LoginFormComponent } from './login/components/login-form.component';
+import { DepartmentsComponent } from './departments/departments.component';
 import { HomeComponent } from './home/home.component';
+import { LoginFormComponent } from './login/components/login-form.component';
+import { NgModule } from '@angular/core';
+
 //import { LoginComponent } from './login/login.component';
 //import { LoginFormComponent } from './login/components/login-form.component';
 
@@ -18,10 +19,10 @@ import { HomeComponent } from './home/home.component';
 // ];
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'departments', pathMatch: 'full' },
+  { path: 'home', component: DepartmentsComponent },
   { path: 'login', component: LoginFormComponent },
-//   { path: 'users', loadChildren: './users/users.module#UsersModule' }
+  { path: 'departments', loadChildren: './departments/departments.module#DepartmentsModule' }
 ];
 
 // const routes: Routes = [

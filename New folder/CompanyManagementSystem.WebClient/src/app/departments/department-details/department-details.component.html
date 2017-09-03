@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>{{dep.name}}</h1>
+    <div class="container-cat" *ngFor="let team of teams">
+      <div class="row">
+        <div class="col-md-12" >
+            <a [routerLink]="['/teams/', team.id]"  class="col-1-4">
+          <h1 class="text-center">{{team.name}}</h1>
+          </a>
+          <hr>
+      </div>
+    </div>
+  </div>
+</div>

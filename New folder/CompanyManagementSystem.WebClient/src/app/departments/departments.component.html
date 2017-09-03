@@ -1,9 +1,11 @@
-<div class="container" *ngFor="let dep of departments">
-    <div class="container-cat">
-        <div class="row">
-      <div class="col-md-12" >
-        <h1 class="text-center">{{dep.name}}</h1>
-        <hr>
+<div class="container">
+    <div class="container-cat" *ngFor="let dep of departments">
+      <div class="row">
+        <div class="col-md-12" >
+            <a [routerLink]="['/departments', dep.id]"  class="col-1-4">
+          <h1 class="text-center">{{dep.name}}</h1>
+          </a>
+          <hr>
       </div>
     </div>
   </div>

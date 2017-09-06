@@ -7,12 +7,12 @@ export class DepartmentsService {
     {
         name : "R&D", 
         id : 0,
-        teams : [{ name : "Team Blue", id : 1}]
+        teams : [{ name : "Team Blue", id : 0}]
     },
     {
       name : "HR", 
       id : 1,
-      teams : [{ name : "Team Red", id : 2}]
+      teams : [{ name : "Team Red", id : 1}]
   },
 ]
 

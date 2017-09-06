@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'departments', pathMatch: 'full' },
   { path: 'home', component: DepartmentsComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'departments', loadChildren: './departments/departments.module#DepartmentsModule' }
+  { path: 'departments', loadChildren: './departments/departments.module#DepartmentsModule' },
+  { path: 'teams', loadChildren: './teams/teams.module#TeamsModule' }
 ];
 
 // const routes: Routes = [

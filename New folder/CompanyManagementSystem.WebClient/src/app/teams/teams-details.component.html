@@ -1,0 +1,13 @@
+<div class="container">
+<h1 class="text-center">{{team.name}}</h1>
+  <div class="container-cat" *ngFor="let emp of employees">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="{{emp.src}}">
+        <h2>{{emp.name}}</h2>
+        <h3>{{emp.position}}</h3>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

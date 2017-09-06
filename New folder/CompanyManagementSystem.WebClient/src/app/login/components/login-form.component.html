@@ -1,1 +1,51 @@
- <h1><strong>Log in page</strong></h1>
+<!-- <div *ngIf="authLoaded"> -->
+<div *ngIf="!isLogging">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center" style="text-shadow: 2px 2px grey;">
+                <h1><strong>Добре Дошли</strong></h1>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="text-center">
+                    <strong>Име:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                    <input type="text" [(ngModel)]="credentials.UserName" id="username" (keyup)="keyDownFunction($event)">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="text-center">
+                    <strong>Парола:&nbsp;</strong>
+                    <input type="password" [(ngModel)]="credentials.Password" id="password" (keyup)="keyDownFunction($event)">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="text-center">
+                    <button class="btn btn-success" (click)="GetToken()">Вход в системата</button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" *ngIf="wrongUserPass">
+            <div class="col-12">
+                <div class="text-center">
+                    <p style="color: darkred">Грешно потребителско име или парола!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <div *ngIf="isLogging">
+        <div class="text-center">
+            <h1><strong>Влизане в системата...</strong></h1>
+        </div>
+    </div>
+</div>

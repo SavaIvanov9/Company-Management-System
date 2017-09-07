@@ -16,8 +16,8 @@
 
         public void Start()
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
-            //this.InsertTestData();
+            // Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            // this.InsertTestData();
             this.DisplayStatus();
         }
 

@@ -5,16 +5,16 @@ export class DepartmentsService {
 
   departments = [
     {
-        name : "R&D", 
+        name : 'R&D',
         id : 0,
-        teams : [{ name : "Team Blue", id : 0}]
+        teams : [{ name : 'Team Blue', id : 0}]
     },
     {
-      name : "HR", 
+      name : 'HR',
       id : 1,
-      teams : [{ name : "Team Red", id : 1}]
+      teams : [{ name : 'Team Red', id : 1}]
   },
-]
+];
 
   getDepartments() {
     return Promise.resolve(this.departments);

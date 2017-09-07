@@ -18,7 +18,7 @@ import { LogoutComponent } from './logout/logout.component';
     AboutUsComponent,
     ContactUsComponent,
     LoginFormComponent,
-    ProfileComponent,
+    ProfileComponent,
     LogoutComponent
 ],
   imports: [

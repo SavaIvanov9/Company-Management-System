@@ -1,12 +1,16 @@
+import { LogoutComponent } from './logout/logout.component';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-import { DepartmentsComponent } from './departments/departments.component';
-import { HomeComponent } from './home/home.component';
-import { LoginFormComponent } from './login/components/login-form.component';
 import { NgModule } from '@angular/core';
 
-//import { LoginComponent } from './login/login.component';
-//import { LoginFormComponent } from './login/components/login-form.component';
+import { HomeComponent } from './home/home.component';
+import { AboutUsComponent } from './aboutUs/aboutUs.component';
+import { ContactUsComponent } from './contactUs/contactUs.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { LoginFormComponent } from './login/components/login-form.component';
+import { ProfileComponent } from './profile/profile.component';
+
+// import { LoginComponent } from './login/login.component';
+// import { LoginFormComponent } from './login/components/login-form.component';
 
 // import { AuthGuard } from './route-guard.service';
 
@@ -19,11 +23,15 @@ import { NgModule } from '@angular/core';
 // ];
 
 const routes: Routes = [
-  { path: '', redirectTo: 'departments', pathMatch: 'full' },
-  { path: 'home', component: DepartmentsComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'aboutus', component: AboutUsComponent },
+  { path: 'contactus', component: ContactUsComponent },
   { path: 'login', component: LoginFormComponent },
+  { path: 'profile', component: ProfileComponent},
+  { path: 'logout', component: LogoutComponent },
   { path: 'departments', loadChildren: './departments/departments.module#DepartmentsModule' },
-  { path: 'teams', loadChildren: './teams/teams.module#TeamsModule' }
+  { path: 'teams', loadChildren: './teams/teams.module#TeamsModule' },
 ];
 
 // const routes: Routes = [

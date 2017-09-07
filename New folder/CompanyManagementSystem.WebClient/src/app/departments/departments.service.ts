@@ -7,12 +7,15 @@ export class DepartmentsService {
     {
         name : 'R&D',
         id : 0,
-        teams : [{ name : 'Team Blue', id : 0}]
+        teams : [{ name : 'Team Blue', id : 0}],
+        description: 'Deep Software understanding, engineering, formulating, developing and delivering protein-based treatments.',
+        manager: 'Georgi Hristov'
     },
     {
       name : 'HR',
       id : 1,
-      teams : [{ name : 'Team Red', id : 1}]
+      teams : [{ name : 'Team Red', id : 1}],
+      description:''
   },
 ];
 

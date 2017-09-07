@@ -1,5 +1,6 @@
 <div class="container">
   <h1>{{dep.name}}</h1>
+  <a [routerLink]="['/teams/form']"  class="col-1-4">Create New Team</a>
     <div class="container-cat" *ngFor="let team of teams">
       <div class="row">
         <div class="col-md-12" >
@@ -10,4 +11,5 @@
       </div>
     </div>
   </div>
-</div>
+
+

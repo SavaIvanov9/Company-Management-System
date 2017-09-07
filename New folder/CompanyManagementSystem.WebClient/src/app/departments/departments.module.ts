@@ -1,3 +1,5 @@
+import { AccordionModule, ButtonsModule } from 'ngx-bootstrap';
+
 import { CommonModule } from '@angular/common';
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { DepartmentsComponent } from './departments.component';
@@ -8,7 +10,9 @@ import { NgModule } from '@angular/core';
 @NgModule({
   imports: [
     CommonModule,
-    DepartmentsRoutingModule
+    DepartmentsRoutingModule,
+    AccordionModule.forRoot(),
+    ButtonsModule.forRoot(),
   ],
   declarations: [
     DepartmentsComponent,

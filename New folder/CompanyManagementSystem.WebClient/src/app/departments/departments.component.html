@@ -1,11 +1,19 @@
 <div class="container">
-    <div class="container-cat" *ngFor="let dep of departments">
-      <div class="row">
-        <div class="col-md-12" >
-            <a [routerLink]="['/departments', dep.id]"  class="col-1-4">
+  <div class="container-cat" *ngFor="let dep of departments">
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/departments', dep.id]" class="col-1-4">
           <h1 class="text-center">{{dep.name}}</h1>
-          </a>
-          <hr>
+        </a>
+        <hr>
+        <accordion>
+            <accordion-group heading="About">
+              {{dep.description}}
+            </accordion-group>
+            <accordion-group heading="Manager">
+                {{dep.manager}}
+            </accordion-group>
+          </accordion>
       </div>
     </div>
   </div>

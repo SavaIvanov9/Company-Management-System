@@ -21,7 +21,7 @@ export class TeamsDetailsComponent implements OnInit {
     this.teamsService
       .getTeamById(id)
       .then(team => {
-        this.team = team
+        this.team = team;
         this.employees = team.employees;
       }
       );

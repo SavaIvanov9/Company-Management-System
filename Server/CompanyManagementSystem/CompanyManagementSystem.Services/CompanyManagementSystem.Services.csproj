@@ -43,12 +43,15 @@
   <ItemGroup>
     <Compile Include="Abstraction\IDepartmentService.cs" />
     <Compile Include="Abstraction\IEmployeeService.cs" />
+    <Compile Include="Abstraction\IPagingService.cs" />
     <Compile Include="Abstraction\IPositionService.cs" />
     <Compile Include="Abstraction\IPermissionService.cs" />
     <Compile Include="Abstraction\ITeamService.cs" />
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="Models\PagingModel.cs" />
+    <Compile Include="PagingService.cs" />
     <Compile Include="PermissionService.cs" />
     <Compile Include="PositionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

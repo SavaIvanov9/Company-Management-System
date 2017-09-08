@@ -13,7 +13,7 @@
         {
         }
 
-        public IEnumerable<Permission> GetAll()
+        public IQueryable<Permission> GetAll()
         {
             var result = this.data.PermissionRepository
                 .All()

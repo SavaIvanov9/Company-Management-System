@@ -2,10 +2,11 @@
 {
     using DbModels;
     using System.Collections.Generic;
+    using System.Linq;
 
     public interface ITeamService
     {
-        IEnumerable<Team> GetAll();
+        IQueryable<Team> GetAll();
 
         Team GetById(long id);
     }

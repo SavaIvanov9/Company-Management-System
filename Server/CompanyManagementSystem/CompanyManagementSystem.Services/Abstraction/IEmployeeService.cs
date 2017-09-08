@@ -2,11 +2,12 @@
 {
     using DataTransferModels.Employee;
     using System.Collections.Generic;
+    using System.Linq;
     using DbModels;
 
     public interface IEmployeeService
     {
-        IEnumerable<Employee> GetAll();
+        IQueryable<Employee> GetAll();
 
         Employee GetById(long id);
     }

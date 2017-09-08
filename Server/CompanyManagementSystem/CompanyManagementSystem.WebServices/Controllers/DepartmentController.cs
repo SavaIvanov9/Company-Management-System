@@ -8,10 +8,21 @@
     public class DepartmentController : BaseController
     {
         private readonly IDepartmentService service;
+        private readonly IPagingService pager;
 
-        public DepartmentController(IDepartmentService service)
+        public DepartmentController(IDepartmentService service, IPagingService pager)
         {
             this.service = service;
+            this.pager = pager;
+        }
+
+        [HttpGet]
+        public IActionResult Get(int itemsPerPage, int pageNumber)
+        {
+            var data = this.service.GetAll();
+            var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
+
+            return this.Ok(result);
         }
 
         [HttpGet]

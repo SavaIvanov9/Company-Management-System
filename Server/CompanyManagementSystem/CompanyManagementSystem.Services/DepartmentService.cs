@@ -13,7 +13,7 @@
         {
         }
 
-        public IEnumerable<Department> GetAll()
+        public IQueryable<Department> GetAll()
         {
             var result = this.data.DepartmentRepository
                 .All()

@@ -13,7 +13,7 @@
         {
         }
 
-        public IEnumerable<Team> GetAll()
+        public IQueryable<Team> GetAll()
         {
             var result = this.data.TeamRepository
                 .All()

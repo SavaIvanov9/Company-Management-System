@@ -13,7 +13,7 @@
         {
         }
 
-        public IEnumerable<Position> GetAll()
+        public IQueryable<Position> GetAll()
         {
             var result = this.data.PositionRepository
                 .All()

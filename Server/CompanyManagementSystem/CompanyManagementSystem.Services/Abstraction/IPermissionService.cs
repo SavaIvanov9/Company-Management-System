@@ -2,9 +2,10 @@
 {
     using DbModels;
     using System.Collections.Generic;
+    using System.Linq;
 
     public interface IPermissionService
     {
-        IEnumerable<Permission> GetAll();
+        IQueryable<Permission> GetAll();
     }
 }

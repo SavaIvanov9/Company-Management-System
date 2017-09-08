@@ -20,7 +20,7 @@
             this.mapper = mapper;
         }
 
-        public IEnumerable<Employee> GetAll()
+        public IQueryable<Employee> GetAll()
         {
             var result = this.data.EmployeeRepository
                 .All()

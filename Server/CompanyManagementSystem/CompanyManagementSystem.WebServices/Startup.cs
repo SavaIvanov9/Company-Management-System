@@ -44,6 +44,7 @@
             services.AddTransient<IPositionService, PositionService>();
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<IDepartmentService, DepartmentService>();
+            services.AddTransient<IPagingService, PagingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

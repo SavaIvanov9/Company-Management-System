@@ -2,9 +2,10 @@
 {
     using DbModels;
     using System.Collections.Generic;
+    using System.Linq;
 
     public interface IPositionService
     {
-        IEnumerable<Position> GetAll();
+        IQueryable<Position> GetAll();
     }
 }

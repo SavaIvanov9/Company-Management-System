@@ -8,10 +8,21 @@
     public class TeamController : BaseController
     {
         private readonly ITeamService service;
+        private readonly IPagingService pager;
 
-        public TeamController(ITeamService service)
+        public TeamController(ITeamService service, IPagingService pager)
         {
             this.service = service;
+            this.pager = pager;
+        }
+
+        [HttpGet]
+        public IActionResult Get(int itemsPerPage, int pageNumber)
+        {
+            var data = this.service.GetAll();
+            var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
+
+            return this.Ok(result);
         }
 
         [HttpGet]

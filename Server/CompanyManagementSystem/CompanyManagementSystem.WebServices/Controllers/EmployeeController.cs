@@ -9,10 +9,21 @@
     public class EmployeeController : BaseController
     {
         private readonly IEmployeeService service;
-
-        public EmployeeController(IEmployeeService service)
+        private readonly IPagingService pager;
+        
+        public EmployeeController(IEmployeeService service, IPagingService pager)
         {
             this.service = service;
+            this.pager = pager;
+        }
+
+        [HttpGet]
+        public IActionResult Get(int itemsPerPage, int pageNumber)
+        {
+            var data = this.service.GetAll();
+            var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
+
+            return this.Ok(result);
         }
 
         [HttpGet]

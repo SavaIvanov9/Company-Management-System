@@ -33,5 +33,14 @@
 
             return result;
         }
+
+        public Employee GetById(long id)
+        {
+            var result = this.data.EmployeeRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+
+            return result;
+        }
     }
 }

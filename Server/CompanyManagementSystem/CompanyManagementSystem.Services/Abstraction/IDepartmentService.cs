@@ -6,5 +6,7 @@
     public interface IDepartmentService
     {
         IEnumerable<Department> GetAll();
+
+        Department GetById(long id);
     }
 }

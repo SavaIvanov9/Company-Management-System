@@ -7,5 +7,7 @@
     public interface IEmployeeService
     {
         IEnumerable<Employee> GetAll();
+
+        Employee GetById(long id);
     }
 }

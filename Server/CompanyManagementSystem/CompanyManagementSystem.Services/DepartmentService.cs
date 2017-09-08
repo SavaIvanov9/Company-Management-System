@@ -26,5 +26,14 @@
 
             return result;
         }
+
+        public Department GetById(long id)
+        {
+            var result = this.data.DepartmentRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+
+            return result;
+        }
     }
 }

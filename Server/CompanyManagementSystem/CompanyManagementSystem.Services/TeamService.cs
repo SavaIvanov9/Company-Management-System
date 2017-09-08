@@ -21,5 +21,14 @@
 
             return result;
         }
+
+        public Team GetById(long id)
+        {
+            var result = this.data.TeamRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+
+            return result;
+        }
     }
 }

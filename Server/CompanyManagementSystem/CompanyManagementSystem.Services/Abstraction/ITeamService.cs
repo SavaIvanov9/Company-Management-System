@@ -6,5 +6,7 @@
     public interface ITeamService
     {
         IEnumerable<Team> GetAll();
+
+        Team GetById(long id);
     }
 }

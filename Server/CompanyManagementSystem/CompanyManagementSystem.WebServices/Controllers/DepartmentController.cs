@@ -23,5 +23,13 @@
 
             return this.Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(long id)
+        {
+            var result = this.service.GetById(id);
+
+            return this.Ok(result);
+        }
     }
 }

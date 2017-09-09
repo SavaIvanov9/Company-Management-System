@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContactUsComponent } from './contactUs/contactUs.component';
 import { DepartmentsModule } from './departments/departments.module';
-import { EmployeesService } from './teams/employees.service';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/components/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -32,7 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     HttpModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [EmployeesService],
+  providers: [],
   bootstrap: [AppComponent]
 
 })

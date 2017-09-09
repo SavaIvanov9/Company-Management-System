@@ -1,11 +1,13 @@
 ﻿namespace CompanyManagementSystem.WebServices.Controllers
 {
-    using System.Linq;
     using Abstraction;
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Routing;
     using Services.Abstraction;
+    using System.Linq;
 
+    [EnableCors("MyPolicy")]
+    [Route("api/[controller]")]
     public class EmployeeController : BaseController
     {
         private readonly IEmployeeService service;
@@ -40,6 +42,14 @@
         public IActionResult Get(long id)
         {
             var result = this.service.GetById(id);
+
+            return this.Ok(result);
+        }
+
+        [HttpGet("GetEmployeesByTeam")]
+        public IActionResult GetEmployeesByTeam(long id)
+        {
+            var result = this.service.GetEmployeesByTeam(id).ToList();
 
             return this.Ok(result);
         }

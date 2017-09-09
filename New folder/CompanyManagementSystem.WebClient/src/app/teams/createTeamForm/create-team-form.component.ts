@@ -2,10 +2,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
-import { EmployeesService } from './../employees.service'
+import { EmployeesService } from './../services/employees.service'
 import {Router} from '@angular/router';
-import { Team } from './../team.model';
-import { TeamsService } from './../teams.service';
+import { Team } from './../models/team.model';
+import { TeamsService } from './../services/teams.service';
 
 @Component({
   selector: 'app-create-team-form',
@@ -42,9 +42,9 @@ export class CreateTeamFormComponent {
 
     }
   onSubmit(){
-    console.log(this.teamForm.value);
-    this.teamsService.createTeam(this.teamForm.value)
-    .then((team) => this.router.navigateByUrl('/teams/' + team.id));
+    //console.log(this.teamForm.value);
+    // this.teamsService.createTeam(this.teamForm.value)
+    // .then((team) => this.router.navigateByUrl('/teams/' + team.id));
   }
 
   ngOnChanges() {

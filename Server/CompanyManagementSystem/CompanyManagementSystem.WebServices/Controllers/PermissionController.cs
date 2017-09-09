@@ -1,10 +1,13 @@
 ﻿namespace CompanyManagementSystem.WebServices.Controllers
 {
-    using System.Linq;
     using Abstraction;
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
+    using System.Linq;
 
+    [EnableCors("MyPolicy")]
+    [Route("api/[controller]")]
     public class PermissionController : BaseController
     {
         private readonly IPermissionService service;

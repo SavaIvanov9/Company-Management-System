@@ -3,7 +3,8 @@
   <div class="row">
     <a [routerLink]="['/teams/form', dep.id]" class="btn btn-primary">Create New Team</a>
   </div>
-  <div class="container-cat" *ngFor="let team of teams">
+  
+  <div class="container-cat" *ngFor="let team of dep.teams">
     <div class="row">
       <div class="col-md-12">
         <a [routerLink]="['/teams/', team.id]" class="col-1-4">

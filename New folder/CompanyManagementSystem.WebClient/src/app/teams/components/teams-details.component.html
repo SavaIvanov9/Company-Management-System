@@ -1,0 +1,14 @@
+<div class="container">
+<h1 class="text-center">{{team.name}}</h1>
+  <div class="container-cat" *ngFor="let user of users">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <img src="{{emp.img}}" class="img-responsive"> -->
+        <h2>{{user.Username}}</h2>
+        <h3>{{user.FirstName}}</h3>
+        <h3>{{user.LastName}}</h3>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

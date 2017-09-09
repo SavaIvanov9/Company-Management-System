@@ -20,18 +20,18 @@ export class HttpClient {
         return null;
     }
 
-    get(url) {
+    public Get(url) {
         let headers = this.createAuthorizationHeader();
         return this.http.get(url, {
             headers: headers
         });
     }
 
-    getWithOptions(url, options: RequestOptionsArgs) {
+    public GetWithOptions(url, options: RequestOptionsArgs) {
         return this.http.get(url, options);
     }
 
-    post(url, data) {
+    public Post(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.post(url, data, {
         //     headers: headers

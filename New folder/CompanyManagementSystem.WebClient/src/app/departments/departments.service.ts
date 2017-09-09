@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 import { Http, Response, Headers } from '@angular/http';
 
 import { HttpClient } from '../core/services/http-client'
@@ -16,38 +17,17 @@ export class DepartmentsService {
   constructor(private http: HttpClient) {
   }
 
-  departments = [
-    {
-      name: 'R&D',
-      id: 0,
-      teams: [{ name: 'Team Blue', id: 0 }],
-      description: 'Deep Software understanding, engineering, formulating, developing and delivering protein-based treatments.',
-      manager: 'Georgi Hristov'
-    },
-    {
-      name: 'HR',
-      id: 1,
-      teams: [{ name: 'Team Red', id: 1 }],
-      description: ''
-    },
-  ];
-
-  //   getDepartments() {
-  //     return Promise.resolve(this.departments);
-  //   }
-
   public getDepartments(): Observable<Department[]> {
-    return this.http.get(this.getDepartmentsUrl)
+    return this.http.Get(this.getDepartmentsUrl)
       .map((res: Response) => res.json())
   }
 
-  //   public getAllUsers(): Observable<User[]> {
-  //   return this.http.get(this.getAllUsersUrl)
-  //     .map((res: Response) => res.json())
-  //     .catch(error => this.errorHandler.handleError(error));
+  // public getDepartmentById(id) {
+  //   return Promise.resolve(this.departments[id]);
   // }
 
-  public getDepartmentById(id) {
-    return Promise.resolve(this.departments[id]);
+  public getDepartmentById(id): Observable<Department> {
+    return this.http.Get(this.getDepartmentsUrl + `/${id}`)
+      .map((res: Response) => res.json())
   }
 }

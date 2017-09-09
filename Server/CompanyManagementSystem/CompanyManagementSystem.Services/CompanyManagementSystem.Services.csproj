@@ -50,6 +50,7 @@
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\PagingModel.cs" />
     <Compile Include="PagingService.cs" />
     <Compile Include="PermissionService.cs" />

@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CreateTeamFormComponent } from './createTeamForm/create-team-form.component';
 import { NgModule } from '@angular/core';
-import { TeamsDetailsComponent } from './teams-details.component';
+import { TeamsDetailsComponent } from './components/teams-details.component';
 
 const routes: Routes = [
   { path: 'form/:id', component: CreateTeamFormComponent },

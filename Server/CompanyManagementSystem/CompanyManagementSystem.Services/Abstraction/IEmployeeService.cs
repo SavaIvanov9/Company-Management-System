@@ -1,14 +1,13 @@
 ﻿namespace CompanyManagementSystem.Services.Abstraction
 {
-    using DataTransferModels.Employee;
-    using System.Collections.Generic;
-    using System.Linq;
     using DbModels;
+    using Models;
+    using System.Linq;
 
     public interface IEmployeeService
     {
         IQueryable<Employee> GetAll();
-
+        IQueryable<EmployeeViewModel> GetEmployeesByTeam(long id);
         Employee GetById(long id);
     }
 }

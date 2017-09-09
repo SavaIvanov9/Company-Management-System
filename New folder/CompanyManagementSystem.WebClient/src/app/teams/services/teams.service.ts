@@ -18,22 +18,22 @@ export class TeamsService {
   constructor(private http: HttpClient) {
   }
 
-  public GetTeams(): Observable<Team[]> {
-    return this.http.Get(this.getTeamsUrl)
+  public getTeams(): Observable<Team[]> {
+    return this.http.get(this.getTeamsUrl)
       .map((res: Response) => res.json());
   }
 
-  public GetTeamById(id: number): Observable<Team> {
-    return this.http.Get(this.getTeamsUrl + `/${id}`)
+  public getTeamById(id: number): Observable<Team> {
+    return this.http.get(this.getTeamsUrl + `/${id}`)
       .map((res: Response) => res.json());
   }
 
-  public GetEmployeesByTeamId(id: number): Observable<User[]> {
-    return this.http.Get(this.GetEmployeesByTeamIdUrl + `${id}`)
+  public getEmployeesByTeamId(id: number): Observable<User[]> {
+    return this.http.get(this.GetEmployeesByTeamIdUrl + `${id}`)
       .map((res: Response) => res.json());
   }
 
-  CreateTeam(team) {
+  createTeam(team) {
     // team.id = 1
     // this.teams.push(team);
     // return Promise.resolve(team);

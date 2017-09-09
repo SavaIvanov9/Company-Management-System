@@ -20,37 +20,37 @@ export class HttpClient {
         return null;
     }
 
-    public Get(url) {
+    public get(url) {
         let headers = this.createAuthorizationHeader();
         return this.http.get(url, {
             headers: headers
         });
     }
 
-    public GetWithOptions(url, options: RequestOptionsArgs) {
+    public getWithOptions(url, options: RequestOptionsArgs) {
         return this.http.get(url, options);
     }
 
-    public Post(url, data) {
+    public post(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.post(url, data, {
         //     headers: headers
         // });
     }
 
-    postWithOptions(url, data, options: RequestOptionsArgs) {
+    public postWithOptions(url, data, options: RequestOptionsArgs) {
         // let headers = this.createAuthorizationHeader();
         return this.http.post(url, data, options);
     }
 
-    put(url, data) {
+    public put(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.put(url, data, {
         //     headers: headers
         // });
     }
 
-    delete(url) {
+    public delete(url) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.delete(url, {
         //     headers: headers

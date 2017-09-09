@@ -21,28 +21,26 @@ export class TeamsDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = this.GetTeamId();
-    this.GetTeamById(id);
-    this.GetEmployees(id);
+    let id = this.getTeamId();
+    this.getTeamById(id);
+    this.getEmployees(id);
   }
 
-  private GetTeamById(id: number): void {
-    this.teamService.GetTeamById(id)
+  private getTeamById(id: number): void {
+    this.teamService.getTeamById(id)
       .subscribe((team: Team) => {
         this.team = team;
       });
   }
 
-  private GetEmployees(id: number): void {
-    this.teamService.GetEmployeesByTeamId(id)
+  private getEmployees(id: number): void {
+    this.teamService.getEmployeesByTeamId(id)
       .subscribe((result: User[]) => {
-        console.log(result);
         this.users = result;
-        console.log(this.users)
       });
   }
 
-  private GetTeamId(): number {
+  private getTeamId(): number {
     return this.activatedRoute.snapshot.params['id'];
   }
 }

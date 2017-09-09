@@ -64,5 +64,26 @@
 
             return result;
         }
+
+        public IQueryable<EmployeeViewModel> GetEmployeesByDepartment(long id)
+        {
+            var result = this.data.EmployeeRepository
+                .All()
+                .Where(x => !x.IsDeleted && x.Teams.Any(t => t.DepartmentId == id))
+                .Select(x => new EmployeeViewModel()
+                {
+                    Id = x.Id,
+                    Username = x.Username,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Age = x.Age,
+                    Email = x.Email,
+                    ManagerId = x.ManagerId,
+                    PositionId = x.PositionId,
+                    CreatedOn = x.CreatedOn
+                });
+
+            return result;
+        }
     }
 }

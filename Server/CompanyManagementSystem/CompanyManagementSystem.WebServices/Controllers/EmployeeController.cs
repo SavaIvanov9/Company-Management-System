@@ -53,5 +53,13 @@
 
             return this.Ok(result);
         }
+
+        [HttpGet("GetEmployeesByDepartment")]
+        public IActionResult GetEmployeesByDepartment(long id)
+        {
+            var result = this.service.GetEmployeesByDepartment(id).ToList();
+
+            return this.Ok(result);
+        }
     }
 }

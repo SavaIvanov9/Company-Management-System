@@ -18,7 +18,7 @@ export class DepartmentsService {
   }
 
   public getDepartments(): Observable<Department[]> {
-    return this.http.Get(this.getDepartmentsUrl)
+    return this.http.get(this.getDepartmentsUrl)
       .map((res: Response) => res.json())
   }
 
@@ -27,7 +27,7 @@ export class DepartmentsService {
   // }
 
   public getDepartmentById(id): Observable<Department> {
-    return this.http.Get(this.getDepartmentsUrl + `/${id}`)
+    return this.http.get(this.getDepartmentsUrl + `/${id}`)
       .map((res: Response) => res.json())
   }
 }

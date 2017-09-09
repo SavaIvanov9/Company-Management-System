@@ -8,6 +8,7 @@
     {
         IQueryable<Employee> GetAll();
         IQueryable<EmployeeViewModel> GetEmployeesByTeam(long id);
+        IQueryable<EmployeeViewModel> GetEmployeesByDepartment(long id);
         Employee GetById(long id);
     }
 }

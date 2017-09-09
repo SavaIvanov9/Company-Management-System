@@ -1,32 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { Http, Response, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+import { DomainUrl } from '../../shared/constants';
+
+import { HttpClient } from '../../core/services/http-client'
+import { User } from '../../profile/models/user.model';
 
 @Injectable()
 export class EmployeesService {
 
-  employees = [
-    {
-      id: 0,
-      img: 'https://appstudio.windows.com/Content/img/temp/icon-user.png',
-      name: 'Ivan Georgiev',
-      position: 'Manager'
-    },
-    {
-      id: 1,
-      img: 'https://appstudio.windows.com/Content/img/temp/icon-user.png',
-      name: 'Nikolai Ivanov',
-      position: 'Software Developer'
-    },
-    {
-      id: 2,
-      img: 'https://appstudio.windows.com/Content/img/temp/icon-user.png',
-      name: 'Neli Kalinova',
-      position: 'Senior Software Developer'
-    }
-  ];
+  private GetEmployeesByDepartmentUrl: string = DomainUrl + 'api/Employee/GetEmployeesByDepartment?Id=';
 
-  getAllEmployeesByDeptId() {
-    return Promise.resolve(this.employees);
+  constructor(private http: HttpClient) {
   }
 
-  
+  public GetAllEmployeesByDeptId(id: number): Observable<User[]> {
+    return this.http.get(this.GetEmployeesByDepartmentUrl + `${id}`)
+      .map((res: Response) => res.json());
+  }
 }

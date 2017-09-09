@@ -23,7 +23,7 @@
             <div style="margin-left: 1em;">
               <div class="form-group">
                 <select class="form-control" formControlName="id">
-                  <option  *ngFor="let emp of allEmployees" [value]="emp.id">{{emp.name}}</option>
+                  <option  *ngFor="let emp of allEmployees" [value]="emp.id">{{emp.firstName}} {{emp.lastName}}</option>
                 </select>
               </div>
             </div>

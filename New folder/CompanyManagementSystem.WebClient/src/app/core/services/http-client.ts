@@ -20,37 +20,42 @@ export class HttpClient {
         return null;
     }
 
+<<<<<<< HEAD
     public Get(url) {
         const headers = this.createAuthorizationHeader();
+=======
+    public get(url) {
+        let headers = this.createAuthorizationHeader();
+>>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc
         return this.http.get(url, {
             headers: headers
         });
     }
 
-    public GetWithOptions(url, options: RequestOptionsArgs) {
+    public getWithOptions(url, options: RequestOptionsArgs) {
         return this.http.get(url, options);
     }
 
-    public Post(url, data) {
+    public post(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.post(url, data, {
         //     headers: headers
         // });
     }
 
-    postWithOptions(url, data, options: RequestOptionsArgs) {
+    public postWithOptions(url, data, options: RequestOptionsArgs) {
         // let headers = this.createAuthorizationHeader();
         return this.http.post(url, data, options);
     }
 
-    put(url, data) {
+    public put(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.put(url, data, {
         //     headers: headers
         // });
     }
 
-    delete(url) {
+    public delete(url) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.delete(url, {
         //     headers: headers

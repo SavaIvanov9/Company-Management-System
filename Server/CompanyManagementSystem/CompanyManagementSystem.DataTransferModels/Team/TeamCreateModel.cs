@@ -6,13 +6,13 @@
     using System;
     using System.Collections.Generic;
 
-    public class TeamCreateModel : BaseCreateModel, ITeamModel
+    public class TeamCreateModel2 : BaseCreateModel, ITeamModel
     {
-        public TeamCreateModel(string createdBy) : base(createdBy)
+        public TeamCreateModel2(string createdBy) : base(createdBy)
         {
         }
 
-        public TeamCreateModel(string createdBy, DateTime createdOn, bool isDeleted) : base(createdBy, createdOn, isDeleted)
+        public TeamCreateModel2(string createdBy, DateTime createdOn, bool isDeleted) : base(createdBy, createdOn, isDeleted)
         {
         }
 

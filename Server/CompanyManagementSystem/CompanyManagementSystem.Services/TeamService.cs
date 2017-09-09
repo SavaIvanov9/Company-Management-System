@@ -6,6 +6,8 @@
     using DbModels;
     using System.Collections.Generic;
     using System.Linq;
+    using DataTransferModels.Team;
+    using Models;
 
     public class TeamService : BaseService, ITeamService
     {
@@ -29,6 +31,38 @@
                 .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
 
             return result;
+        }
+
+        public long CreateTeam(TeamCreateModel teamData)
+        {
+            var department = this.data.DepartmentRepository
+                .All()
+                .FirstOrDefault(x => x.IsDeleted == false && x.Id == teamData.DepartmentId);
+
+            var employees = this.data.EmployeeRepository
+                .All()
+                .Where(x => x.IsDeleted == false && teamData.EmployeeIds.Any(e => e == x.Id))
+                .ToList();
+
+            var newTeam = new Team()
+            {
+                CreatedBy = "S",
+                Name = teamData.TeamName,
+                Department = department,
+                DepartmentId = department.Id,
+                Employees = employees
+            };
+
+            employees.ForEach(x =>
+            {
+                x.Teams.Add(newTeam);
+                this.data.EmployeeRepository.Update(x);
+            });
+
+            this.data.TeamRepository.Add(newTeam);
+            this.data.SaveChanges();
+
+            return newTeam.Id;
         }
     }
 }

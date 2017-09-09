@@ -1,10 +1,13 @@
 ﻿namespace CompanyManagementSystem.WebServices.Controllers
 {
     using Abstraction;
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
 
+    [EnableCors("MyPolicy")]
+    [Route("api/[controller]")]
     public class TeamController : BaseController
     {
         private readonly ITeamService service;

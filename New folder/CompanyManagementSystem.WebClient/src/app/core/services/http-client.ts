@@ -10,28 +10,28 @@ export class HttpClient {
         // private cookieService: CookieService
     ) { }
 
-    // private createAuthorizationHeader(): Headers {
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     if (this.cookieService.get('auth')) {
-    //         headers.set('Authorization', 'Bearer ' + this.cookieService.get('auth'))
+    private createAuthorizationHeader(): Headers {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        // if (this.cookieService.get('auth')) {
+        //     headers.set('Authorization', 'Bearer ' + this.cookieService.get('auth'))
 
-    //         return headers;
-    //     }
-    //     return null;
-    // }
-
-    get(url) {
-        // let headers = this.createAuthorizationHeader();
-        // return this.http.get(url, {
-        //     headers: headers
-        // });
+        //     return headers;
+        // }
+        return null;
     }
 
-    getWithOptions(url, options: RequestOptionsArgs) {
+    public Get(url) {
+        let headers = this.createAuthorizationHeader();
+        return this.http.get(url, {
+            headers: headers
+        });
+    }
+
+    public GetWithOptions(url, options: RequestOptionsArgs) {
         return this.http.get(url, options);
     }
 
-    post(url, data) {
+    public Post(url, data) {
         // let headers = this.createAuthorizationHeader();
         // return this.http.post(url, data, {
         //     headers: headers

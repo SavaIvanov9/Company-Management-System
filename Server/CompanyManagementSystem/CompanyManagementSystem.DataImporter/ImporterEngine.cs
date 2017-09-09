@@ -16,9 +16,11 @@
 
         public void Start()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
-            this.InsertTestData();
-            this.DisplayStatus();
+            //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            //this.InsertTestData();
+            //this.DisplayStatus();
+
+            Console.WriteLine(this.data.EmployeeRepository.All().FirstOrDefault().Teams.Count);
         }
 
         public void InsertTestData()
@@ -105,6 +107,7 @@
                 var department = new Department()
                 {
                     Name = $"Department {i}",
+                    Description = $"This is test department number: {i}",
                     CreatedBy = "S"
                 };
 
@@ -166,8 +169,7 @@
                 .OrderBy(x => x.Id)
                 .Skip(1)
                 .FirstOrDefault();
-
-
+            
             for (int i = 0; i < count; i++)
             {
                 var employee = new Employee()
@@ -181,10 +183,21 @@
                     Age = 20 + i,
                     Email = $"Email {i}",
                     PositionId = i % 2 == 0 ? possition1.Id : possition2.Id,
-                    CreatedBy = "S"
+                    CreatedBy = "S",
                 };
 
                 employee.Teams.Add(i % 2 == 0 ? team1 : team2);
+
+                if (i % 2 == 0)
+                {
+                    team1.Employees.Add(employee);
+                    this.data.TeamRepository.Update(team1);
+                }
+                else
+                {
+                    team2.Employees.Add(employee);
+                    this.data.TeamRepository.Update(team2);
+                }
 
                 this.data.EmployeeRepository.Add(employee);
             }

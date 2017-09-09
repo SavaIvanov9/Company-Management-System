@@ -16,12 +16,32 @@
       <div *ngIf="teamForm.controls['name'].hasError('maxlength')" class="alert alert-danger">
         Name cannot exceed 20 characters!
       </div>
-      <select class="form-control" formControlName="employees" (ngModelChange)="onChange($event)">
-          <option  *ngFor="let emp of employees">{{emp.name}}</option>
-           <li></li>
+      <div formArrayName="employees" class="well well-lg">
+          <div *ngFor="let p of employees.controls; let i=index" [formGroupName]="i" >
+            <!-- The repeated address template -->
+            <h4>Employee #{{i + 1}}</h4>
+            <div style="margin-left: 1em;">
+              <div class="form-group">
+                <select class="form-control" formControlName="id">
+                  <option  *ngFor="let emp of allEmployees" [value]="emp.id">{{emp.name}}</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <!-- End of the repeated address template -->
+          </div>
+          <button (click)="addPerson()" type="button">Add an Employee</button>
+        </div>
+
+      <!-- <select class="form-control" formControlName="employees">
+          <option  *ngFor="let emp of employees" (click)="addPerson($event.target.value)">{{emp.name}}</option>
         </select>
+        <ul>
+            <li *ngFor= "let p of people"> {{p}} </li>
+        </ul>
+
         <h2 class="category">Employee</h2>
-        <ul></ul>
+        <ul></ul> -->
     </div>
     <button type="submit" [disabled]="!teamForm.valid" class="btn btn-primary">Submit</button>
   </form>

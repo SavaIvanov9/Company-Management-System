@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
 import { EmployeesService } from './../employees.service'
@@ -17,24 +17,27 @@ export class CreateTeamFormComponent {
   constructor(private teamsService: TeamsService,
     private employeesService: EmployeesService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private fb: FormBuilder) { }
 
     teamForm
+    team = {
+      employees : []
+    }
+    allEmployees = [];
 
-    employees = [];
     ngOnInit() {
       
       const id = +this.activatedRoute.snapshot.params['id'];
       this.teamForm = new FormGroup({
-        
             departmentId: new FormControl(id),
             name:  new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-            employees: new FormControl(),
+            employees: this.fb.array([]),
       });
       this.employeesService
       .getAllEmployeesByDeptId()
       .then(employees => {
-        this.employees = employees;
+        this.allEmployees = employees;
       });
 
     }
@@ -43,7 +46,23 @@ export class CreateTeamFormComponent {
     this.teamsService.createTeam(this.teamForm.value)
     .then((team) => this.router.navigateByUrl('/teams/' + team.id));
   }
-  onChange(emp){
-    
+
+  ngOnChanges() {
+    this.setEmployees(this.team.employees);
   }
+
+  get employees(): FormArray {
+    return this.teamForm.get('employees') as FormArray;
+  };
+
+  setEmployees(employees) {
+    const employeeFGs = employees.map(emp => this.fb.group(emp));
+    const employeeFormArray = this.fb.array(employeeFGs);
+    this.teamForm.setControl('employees', employeeFormArray);
+  }
+
+  addPerson() {
+    this.employees.push(this.fb.group({id : ''}));
+  }
+
 }

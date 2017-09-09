@@ -14,11 +14,17 @@ export class RegisterFormComponent {
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      name: new FormControl(),
-      email: new FormControl(),
-      username: new FormControl(),
-      password: new FormControl()
+      username: new FormControl(null, [Validators.required]),
+      firstName: new FormControl(null, [Validators.required]),
+      lastName: new FormControl(null, [Validators.required]),
+      age: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
     });
+  }
+
+  onSubmit(){
+    console.log(this.registerForm.value);
   }
   
 }

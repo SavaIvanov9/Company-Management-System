@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/components/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterFormComponent } from './register/register-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginFormComponent,
     ProfileComponent,
     LogoutComponent,
-
+    RegisterFormComponent,
 ],
   imports: [
     AppRoutingModule,

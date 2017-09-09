@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-//import { TabMenuModule, MenuItem } from 'primeng/primeng';
+// import { TabMenuModule, MenuItem } from 'primeng/primeng';
 import { PanelMenuModule, MenuItem } from 'primeng/primeng';
 
 @Component({
@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('Home page');
 
         // this.items = [
         //     { label: 'New', icon: 'fa-plus' },

@@ -1,3 +1,25 @@
-<p>
-  profile works!
-</p>
+<div class="tabular-form">
+  <legend align="center">{{user.username}}'s Profile</legend>
+</div>
+
+<div class="container">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <p align="left" appStrongItem>First name: {{user.firstName}}</p>
+          <p align="left" appStrongItem>Last name: {{user.lastName}}</p>
+          <p align="left" appStrongItem>Age: {{user.age}}</p>
+          <p align="left" appStrongItem>E-mail: {{user.email}}</p>
+          <p align="left" appStrongItem>Manager name: {{user.manager}}</p>
+          <p align="left" appStrongItem>Position: {{user.position}}</p>
+          <p align="left" appStrongItem>Teams: {{suer.team}}</p>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

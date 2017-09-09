@@ -8,7 +8,7 @@ import { Cookie } from '../models/cookie.model';
 import { Credentials } from '../models/credentials.model';
 import { User } from '../models/user.model';
 
-import { HttpClient } from '../../core/services/http-client'
+import { HttpClient } from '../../core/services/http-client';
 
 @Injectable()
 export class LoginService {

@@ -6,6 +6,7 @@ import { DepartmentsComponent } from './departments.component';
 import { DepartmentsRoutingModule } from './departments-routing.module';
 import { DepartmentsService } from './departments.service';
 import { NgModule } from '@angular/core';
+import { HttpClient } from '../core/services/http-client';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { NgModule } from '@angular/core';
     DepartmentsComponent,
     DepartmentDetailsComponent,
   ],
-  providers : [DepartmentsService]
+  providers: [DepartmentsService, HttpClient]
 })
 export class DepartmentsModule { }

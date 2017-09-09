@@ -105,6 +105,7 @@
                 var department = new Department()
                 {
                     Name = $"Department {i}",
+                    Description = $"This is test department number: {i}",
                     CreatedBy = "S"
                 };
 

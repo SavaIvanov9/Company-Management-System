@@ -10,21 +10,21 @@ export class HttpClient {
         // private cookieService: CookieService
     ) { }
 
-    // private createAuthorizationHeader(): Headers {
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     if (this.cookieService.get('auth')) {
-    //         headers.set('Authorization', 'Bearer ' + this.cookieService.get('auth'))
+    private createAuthorizationHeader(): Headers {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        // if (this.cookieService.get('auth')) {
+        //     headers.set('Authorization', 'Bearer ' + this.cookieService.get('auth'))
 
-    //         return headers;
-    //     }
-    //     return null;
-    // }
+        //     return headers;
+        // }
+        return null;
+    }
 
     get(url) {
-        // let headers = this.createAuthorizationHeader();
-        // return this.http.get(url, {
-        //     headers: headers
-        // });
+        let headers = this.createAuthorizationHeader();
+        return this.http.get(url, {
+            headers: headers
+        });
     }
 
     getWithOptions(url, options: RequestOptionsArgs) {

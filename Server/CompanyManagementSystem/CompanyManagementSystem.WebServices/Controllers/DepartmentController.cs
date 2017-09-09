@@ -4,7 +4,10 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Microsoft.AspNetCore.Cors;
 
+    [EnableCors("MyPolicy")]
+    [Route("api/[controller]")]
     public class DepartmentController : BaseController
     {
         private readonly IDepartmentService service;
@@ -16,7 +19,7 @@
             this.pager = pager;
         }
 
-        [HttpGet]
+        [HttpGet("Page")]
         public IActionResult Get(int itemsPerPage, int pageNumber)
         {
             var data = this.service.GetAll();
@@ -25,11 +28,16 @@
             return this.Ok(result);
         }
 
+        //[HttpGet("GetAll")]
         [HttpGet]
         public IActionResult Get()
         {
             var result = this.service
                 .GetAll()
+                //.Select(x => new
+                //{
+                //    a = 1
+                //})
                 .ToList();
 
             return this.Ok(result);

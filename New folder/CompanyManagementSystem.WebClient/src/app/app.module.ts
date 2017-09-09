@@ -1,4 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/components/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+//import { HttpClient } from './core/services/http-client'
 
 @NgModule({
   declarations: [
@@ -22,12 +24,12 @@ import { ProfileComponent } from './profile/profile.component';
     ProfileComponent,
     LogoutComponent,
 
-],
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     DepartmentsModule,
-    
+    HttpModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [EmployeesService],

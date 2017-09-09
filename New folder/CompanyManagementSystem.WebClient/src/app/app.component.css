@@ -14,3 +14,12 @@
   height: 30px;
   margin-right: 100px;
 } */
+
+li>a {
+  font-weight: bold;
+  color: #AD0074;
+}
+
+body {
+  background-color: blue;
+}

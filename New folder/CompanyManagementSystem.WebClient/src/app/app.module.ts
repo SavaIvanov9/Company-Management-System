@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/components/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-//import { HttpClient } from './core/services/http-client'
 
 @NgModule({
   declarations: [

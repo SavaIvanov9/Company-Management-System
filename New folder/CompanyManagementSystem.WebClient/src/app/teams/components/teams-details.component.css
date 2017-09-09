@@ -1,0 +1,12 @@
+.some {
+    background-color: #11BCDF;
+    opacity: 0.9;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.container {
+    background-color: lightblue;
+}

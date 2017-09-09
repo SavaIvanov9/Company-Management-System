@@ -1,14 +1,16 @@
 <div class="container">
-  <h1 class="text-center">{{team.name}}</h1>
-  <!-- <div class="container-cat" *ngFor="let user of users">
-    <div class="row"> -->
-      <div class="col-md-12" *ngFor="let user of users">
-        <!-- <img src="{{emp.img}}" class="img-responsive"> -->
-        <h2>{{user.firstName}}</h2>
-        <h3>{{user.lastName}}</h3>
-        <h3>{{user.username}}</h3>
-        <hr>
+  <div id="collapseOne">
+    <div class="panel-body">
+      <h1 class="text-center"><strong>{{team.name}} Members</strong></h1>
+      <div class="row text-center">
+        <div class="col-md-12" class="some" *ngFor="let user of users">
+          <div class="col-1-4">
+            <h3>
+              <span class="navbar-left">Username:</span><strong> {{user.username}}</strong><br><span class="navbar-left">First name:</span><strong> {{user.firstName}}</strong><br><span class="navbar-left">Last name:</span><strong> {{user.lastName}}</strong>
+            </h3>
+          </div>
+        </div>
       </div>
-    <!-- </div>
-  </div> -->
+    </div>
+  </div>
 </div>

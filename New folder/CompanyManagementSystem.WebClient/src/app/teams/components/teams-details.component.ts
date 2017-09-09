@@ -21,7 +21,7 @@ export class TeamsDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = this.GetTeamId();
+    const id = this.GetTeamId();
     this.GetTeamById(id);
     this.GetEmployees(id);
   }
@@ -38,7 +38,7 @@ export class TeamsDetailsComponent implements OnInit {
       .subscribe((result: User[]) => {
         console.log(result);
         this.users = result;
-        console.log(this.users)
+        console.log(this.users);
       });
   }
 

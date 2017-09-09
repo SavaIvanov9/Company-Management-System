@@ -1,21 +1,13 @@
-<div class="container">
+<div class="container text-center">
   <div class="container-cat" *ngFor="let dep of departments">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" class="text-center">
         <a [routerLink]="['/departments', dep.id]" class="col-1-4">
-          <h1 class="text-center">{{dep.name}}</h1>
+          <h1 >{{dep.name}}</h1>
         </a>
         <hr>
-        <!-- <accordion>
-          <accordion-group heading="About">
-            {{dep.description}}
-          </accordion-group>
-          <accordion-group heading="CreatedOn">
-            {{dep.CreatedOn}}
-          </accordion-group>
-        </accordion> -->
-        {{dep.description}} 
-        {{dep.CreatedOn}}
+        {{dep.description}} <br><br>
+        {{dep.createdOn | date: 'd MMM yyyy' }}
       </div>
     </div>
   </div>

@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { Http, Response, Headers } from '@angular/http';
 
-import { HttpClient } from '../core/services/http-client'
-import { Department } from './models/department.model'
+import { HttpClient } from '../core/services/http-client';
+import { Department } from './models/department.model';
 
 import { DomainUrl } from '../shared/constants';
 
@@ -12,14 +12,14 @@ import { DomainUrl } from '../shared/constants';
 export class DepartmentsService {
 
   private getDepartmentsUrl: string = DomainUrl + 'api/department';
-  //private http: HttpClient = new HttpClient();
+  // private http: HttpClient = new HttpClient();
 
   constructor(private http: HttpClient) {
   }
 
   public getDepartments(): Observable<Department[]> {
     return this.http.Get(this.getDepartmentsUrl)
-      .map((res: Response) => res.json())
+      .map((res: Response) => res.json());
   }
 
   // public getDepartmentById(id) {
@@ -28,6 +28,6 @@ export class DepartmentsService {
 
   public getDepartmentById(id): Observable<Department> {
     return this.http.Get(this.getDepartmentsUrl + `/${id}`)
-      .map((res: Response) => res.json())
+      .map((res: Response) => res.json());
   }
 }

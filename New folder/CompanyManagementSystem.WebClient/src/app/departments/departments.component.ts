@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DepartmentsService } from './departments.service';
 
-import { Department } from './models/department.model'
+import { Department } from './models/department.model';
 
 @Component({
   selector: 'app-departments',

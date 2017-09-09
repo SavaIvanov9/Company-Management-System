@@ -22,9 +22,15 @@ export class TeamsDetailsComponent implements OnInit {
 
   ngOnInit() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     const id = this.GetTeamId();
     this.GetTeamById(id);
     this.GetEmployees(id);
+=======
+    let id = this.getTeamId();
+    this.getTeamById(id);
+    this.getEmployees(id);
+>>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc
 =======
     let id = this.getTeamId();
     this.getTeamById(id);
@@ -44,7 +50,10 @@ export class TeamsDetailsComponent implements OnInit {
       .subscribe((result: User[]) => {
         this.users = result;
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log(this.users);
+=======
+>>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc
 =======
 >>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc
       });

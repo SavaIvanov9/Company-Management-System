@@ -21,9 +21,12 @@ export class HttpClient {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Get(url) {
         const headers = this.createAuthorizationHeader();
 =======
+=======
+>>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc
     public get(url) {
         let headers = this.createAuthorizationHeader();
 >>>>>>> 1ca92b8e52444ce39527560b7fbbdd0c3491fccc

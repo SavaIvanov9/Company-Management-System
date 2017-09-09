@@ -50,9 +50,11 @@
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="Models\DepartmenViewModel.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\PagingModel.cs" />
     <Compile Include="Models\TeamCreateModel.cs" />
+    <Compile Include="Models\TeamViewModel.cs" />
     <Compile Include="PagingService.cs" />
     <Compile Include="PermissionService.cs" />
     <Compile Include="PositionService.cs" />

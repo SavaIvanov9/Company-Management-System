@@ -13,7 +13,7 @@ import { Team } from '../../teams/models/team.model';
 })
 export class DepartmentDetailsComponent implements OnInit {
   private dep: Department = new Department();
-  teams = []
+  teams = [];
 
   constructor(private departmentsSevice: DepartmentsService,
     private activatedRoute: ActivatedRoute) { }
@@ -30,13 +30,22 @@ export class DepartmentDetailsComponent implements OnInit {
     //   }
     //   );
 
-    this.GetDepartmentDetails(this.GetDepartmentId());
+    let id = this.GetDepartmentId();
+    this.GetDepartmentDetails(id);
+    this.GetTeams(id);
   }
 
   private GetDepartmentDetails(id) {
     this.departmentsSevice.getDepartmentById(id)
       .subscribe((department: Department) => {
         this.dep = department;
+      });
+  }
+
+  private GetTeams(id) {
+    this.departmentsSevice.getTeamsByDepartment(id)
+      .subscribe((result: Team[]) => {
+        this.teams = result;
       });
   }
 

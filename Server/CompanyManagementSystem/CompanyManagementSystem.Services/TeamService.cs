@@ -33,6 +33,20 @@
             return result;
         }
 
+        public IQueryable<TeamViewModel> GetTeamsByDepartment(long id)
+        {
+            var result = this.data.TeamRepository
+                .All()
+                .Where(x => x.IsDeleted == false && x.DepartmentId == id)
+                .Select(x => new TeamViewModel()
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                });
+
+            return result;
+        }
+
         public long CreateTeam(TeamCreateModel teamData)
         {
             var department = this.data.DepartmentRepository

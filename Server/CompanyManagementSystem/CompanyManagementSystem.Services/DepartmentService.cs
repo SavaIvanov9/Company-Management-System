@@ -6,6 +6,7 @@
     using DbModels;
     using System.Collections.Generic;
     using System.Linq;
+    using Models;
 
     public class DepartmentService : BaseService, IDepartmentService
     {
@@ -13,11 +14,18 @@
         {
         }
 
-        public IQueryable<Department> GetAll()
+        public IQueryable<DepartmenViewModel> GetAll()
         {
             var result = this.data.DepartmentRepository
                 .All()
-                .Where(x => !x.IsDeleted);
+                .Where(x => !x.IsDeleted)
+                .Select(x => new DepartmenViewModel()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    CreatedOn = x.CreatedOn,
+                    CreatedBy = x.CreatedBy
+                });
             //.Select(x => new EmployeeReadModel()
             //{
             //   
@@ -27,11 +35,24 @@
             return result;
         }
 
-        public Department GetById(long id)
+        public DepartmenViewModel GetById(long id)
         {
             var result = this.data.DepartmentRepository
                 .All()
-                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+                .Where(x => x.Id == id && x.IsDeleted == false)
+                .Select(x => new DepartmenViewModel()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    CreatedOn = x.CreatedOn,
+                    CreatedBy = x.CreatedBy,
+                    //Teams = x.Teams.Select(t => new TeamViewModel()
+                    //{
+                    //    Id = t.Id,
+                    //    Name = t.Name
+                    //})
+                })
+                .FirstOrDefault();
 
             return result;
         }

@@ -6,7 +6,6 @@
     using Services.Abstraction;
     using System.Linq;
     using System.Net.Http;
-    using Models;
     using Newtonsoft.Json;
     using Services.Models;
 
@@ -46,6 +45,14 @@
         public IActionResult Get(long id)
         {
             var result = this.service.GetById(id);
+
+            return this.Ok(result);
+        }
+
+        [HttpGet("GetByDepartment")]
+        public IActionResult Get(int departmentId)
+        {
+            var result = this.service.GetTeamsByDepartment(departmentId);
 
             return this.Ok(result);
         }

@@ -5,6 +5,7 @@
     using Services.Abstraction;
     using System.Linq;
     using Microsoft.AspNetCore.Cors;
+    using Services.Models;
 
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
@@ -19,25 +20,21 @@
             this.pager = pager;
         }
 
-        [HttpGet("Page")]
-        public IActionResult Get(int itemsPerPage, int pageNumber)
-        {
-            var data = this.service.GetAll();
-            var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
+        //[HttpGet("Page")]
+        //public IActionResult Get(int itemsPerPage, int pageNumber)
+        //{
+        //    var data = this.service.GetAll();
+        //    var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
 
-            return this.Ok(result);
-        }
+        //    return this.Ok(result);
+        //}
 
         //[HttpGet("GetAll")]
-        [HttpGet]
+        [HttpGet()]
         public IActionResult Get()
         {
             var result = this.service
                 .GetAll()
-                //.Select(x => new
-                //{
-                //    a = 1
-                //})
                 .ToList();
 
             return this.Ok(result);

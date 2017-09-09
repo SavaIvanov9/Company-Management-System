@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Services.Models;
 
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
@@ -44,6 +45,14 @@
             var result = this.service.GetById(id);
 
             return this.Ok(result);
+        }
+
+        [HttpPost]
+        public IActionResult Post(TeamCreateModel teamData)
+        {
+            var id = this.service.CreateTeam(teamData);
+
+            return this.Ok(id);
         }
     }
 }

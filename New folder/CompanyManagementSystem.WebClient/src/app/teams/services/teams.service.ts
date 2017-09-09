@@ -8,23 +8,24 @@ import { DomainUrl } from '../../shared/constants';
 import { HttpClient } from '../../core/services/http-client'
 import { Team } from '../models/team.model';
 import { User } from '../../profile/models/user.model';
+import { TeamCreateModel } from '../models/teamCreate.model';
 
 @Injectable()
 export class TeamsService {
 
-  private getTeamsUrl: string = DomainUrl + 'api/Team';
+  private teamUrl: string = DomainUrl + 'api/Team';
   private GetEmployeesByTeamIdUrl: string =  DomainUrl + 'api/Employee/GetEmployeesByTeam?Id=';
 
   constructor(private http: HttpClient) {
   }
 
   public getTeams(): Observable<Team[]> {
-    return this.http.get(this.getTeamsUrl)
+    return this.http.get(this.teamUrl)
       .map((res: Response) => res.json());
   }
 
   public getTeamById(id: number): Observable<Team> {
-    return this.http.get(this.getTeamsUrl + `/${id}`)
+    return this.http.get(this.teamUrl + `/${id}`)
       .map((res: Response) => res.json());
   }
 
@@ -33,9 +34,8 @@ export class TeamsService {
       .map((res: Response) => res.json());
   }
 
-  createTeam(team) {
-    // team.id = 1
-    // this.teams.push(team);
-    // return Promise.resolve(team);
+  public createTeam(teamCreateModel: TeamCreateModel) {
+    return this.http.post(this.teamUrl, teamCreateModel)
+      .map((res: Response) => res.json())
   }
 }

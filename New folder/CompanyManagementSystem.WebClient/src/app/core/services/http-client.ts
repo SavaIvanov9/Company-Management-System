@@ -32,10 +32,10 @@ export class HttpClient {
     }
 
     public post(url, data) {
-        // let headers = this.createAuthorizationHeader();
-        // return this.http.post(url, data, {
-        //     headers: headers
-        // });
+        let headers = this.createAuthorizationHeader();
+        return this.http.post(url, data, {
+            headers: headers
+        });
     }
 
     public postWithOptions(url, data, options: RequestOptionsArgs) {

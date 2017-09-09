@@ -16,7 +16,7 @@ export class EmployeesService {
   constructor(private http: HttpClient) {
   }
 
-  public GetAllEmployeesByDeptId(id: number): Observable<User[]> {
+  public getAllEmployeesByDeptId(id: number): Observable<User[]> {
     return this.http.get(this.GetEmployeesByDepartmentUrl + `${id}`)
       .map((res: Response) => res.json());
   }

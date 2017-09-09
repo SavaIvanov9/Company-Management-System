@@ -8,6 +8,7 @@ import { User } from '../../profile/models/user.model';
 
 import { EmployeesService } from './../services/employees.service'
 import { TeamsService } from './../services/teams.service';
+import { TeamCreateModel } from './../models/teamCreate.model'
 
 @Component({
   selector: 'app-create-team-form',
@@ -41,12 +42,13 @@ export class CreateTeamFormComponent {
       name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       employees: this.fb.array([]),
     });
-    this.LoadEmployees(id);
+
+    this.loadEmployees(id);
   }
 
-  private LoadEmployees(id: number) {
+  private loadEmployees(id: number) {
     this.employeeService
-      .GetAllEmployeesByDeptId(id)
+      .getAllEmployeesByDeptId(id)
       .subscribe((result: User[]) => {
         this.allEmployees = result;
       });
@@ -55,8 +57,12 @@ export class CreateTeamFormComponent {
   private onSubmit() {
     console.log("submit")
     console.log(this.teamForm.value);
-    // this.teamsService.createTeam(this.teamForm.value)
-    // .then((team) => this.router.navigateByUrl('/teams/' + team.id));
+    let data = new TeamCreateModel();
+    data.TeamName = this.teamForm.value.name;
+    data.DepartmentId = this.teamForm.value.departmentId;
+    data.EmployeeIds = this.teamForm.value.employees.map(e => e.id);
+    console.log(data)
+    this.teamsService.createTeam(data).subscribe(() => this.ngOnInit());
   }
 
   private ngOnChanges() {
@@ -65,6 +71,7 @@ export class CreateTeamFormComponent {
 
   private setEmployees(employees) {
     const employeeFGs = employees.map(emp => this.fb.group(emp));
+    //const employeeFGs = employees.map(emp => emp.id);
     const employeeFormArray = this.fb.array(employeeFGs);
     this.teamForm.setControl('employees', employeeFormArray);
   }

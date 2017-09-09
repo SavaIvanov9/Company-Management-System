@@ -5,6 +5,9 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using System.Net.Http;
+    using Models;
+    using Newtonsoft.Json;
     using Services.Models;
 
     [EnableCors("MyPolicy")]
@@ -47,12 +50,32 @@
             return this.Ok(result);
         }
 
-        [HttpPost]
-        public IActionResult Post(TeamCreateModel teamData)
+        //[HttpPost()]
+        ////public IActionResult Post(TeamCreateModel teamData)
+        //public IActionResult Post(HttpRequestMessage teamData)
+        //{
+        //    var data = teamData.Content.ReadAsStringAsync().Result;
+        //    var r = JsonConvert.DeserializeObject<TeamCreateModel>(data);
+        //    var id = this.service.CreateTeam(r);
+
+        //    return this.Ok(id);
+        //}
+
+        [HttpPost()]
+        public IActionResult Post([FromBody] TeamCreateModel teamData)
         {
             var id = this.service.CreateTeam(teamData);
 
             return this.Ok(id);
         }
+
+        //[HttpPost()]
+        ////public IActionResult Post([FromBody] dynamic teamData)
+        //public IActionResult Post([FromBody]TeamCreateModel teamData)
+        //{
+        //    var name = teamData;
+
+        //    return this.Ok(name);
+        //}
     }
 }

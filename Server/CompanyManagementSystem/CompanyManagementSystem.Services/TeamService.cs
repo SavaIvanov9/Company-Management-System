@@ -39,10 +39,12 @@
                 .All()
                 .FirstOrDefault(x => x.IsDeleted == false && x.Id == teamData.DepartmentId);
 
-            var employees = this.data.EmployeeRepository
-                .All()
-                .Where(x => x.IsDeleted == false && teamData.EmployeeIds.Any(e => e == x.Id))
-                .ToList();
+            //var employees = this.data.EmployeeRepository
+            //    .All()
+            //    .Where(x => x.IsDeleted == false && teamData.EmployeeIds.Any(e => e == x.Id))
+            //    .ToList();
+
+            var employees = this.FindEmployees(teamData.EmployeeIds).ToList();
 
             var newTeam = new Team()
             {
@@ -53,16 +55,34 @@
                 Employees = employees
             };
 
-            employees.ForEach(x =>
-            {
-                x.Teams.Add(newTeam);
-                this.data.EmployeeRepository.Update(x);
-            });
+            //employees.ForEach(x =>
+            //{
+            //    x.Teams.Add(newTeam);
+            //    this.data.EmployeeRepository.Update(x);
+            //});
 
             this.data.TeamRepository.Add(newTeam);
             this.data.SaveChanges();
 
             return newTeam.Id;
+        }
+
+        private IEnumerable<Employee> FindEmployees(List<long> ids)
+        {
+            for (int i = 0; i < ids.Count; i++)
+            {
+                var id = ids[i];
+                yield return this.data.EmployeeRepository
+                    .All()
+                    .FirstOrDefault(e => e.Id == id);
+            }
+
+            //ids.ForEach(id =>
+            //{
+            //    yield return this.data.EmployeeRepository
+            //        .All()
+            //        .FirstOrDefault(e => e.Id == id);
+            //});
         }
     }
 }

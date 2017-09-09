@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AppComponent } from './app.component';
@@ -8,10 +8,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ContactUsComponent } from './contactUs/contactUs.component';
 import { DepartmentsModule } from './departments/departments.module';
 import { HomeComponent } from './home/home.component';
+import { HttpModule } from '@angular/http';
 import { LoginFormComponent } from './login/components/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-//import { HttpClient } from './core/services/http-client'
+import { RegisterFormComponent } from './register/register-form.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,16 @@ import { ProfileComponent } from './profile/profile.component';
     LoginFormComponent,
     ProfileComponent,
     LogoutComponent,
+    RegisterFormComponent,
+],
 
-  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     DepartmentsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule,
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],

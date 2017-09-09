@@ -37,11 +37,9 @@ export class TeamsDetailsComponent implements OnInit {
     this.teamService.GetEmployeesByTeamId(id)
       .subscribe((result: User[]) => {
         console.log(result);
-
-        this.users = Array.from(result);
+        this.users = result;
+        console.log(this.users)
       });
-
-    console.log(this.users)
   }
 
   private GetTeamId(): number {

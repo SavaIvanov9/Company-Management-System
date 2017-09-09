@@ -22,12 +22,14 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@types/bootstrap": "^3.3.36",
+    "@types/tether": "^1.4.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "ng2-breadcrumb": "^0.5.14",
-    "ngx-bootstrap": "^1.9.1",
+    "jquery": "^3.2.1",
+    "ngx-bootstrap": "^1.9.3",
     "primeng": "^4.2.0-rc.1",
     "rxjs": "^5.4.2",
+    "tether": "^1.4.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

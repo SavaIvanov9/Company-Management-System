@@ -15,7 +15,7 @@ export class DepartmentsService {
       name : 'HR',
       id : 1,
       teams : [{ name : 'Team Red', id : 1}],
-      description:''
+      description: ''
   },
 ];
 

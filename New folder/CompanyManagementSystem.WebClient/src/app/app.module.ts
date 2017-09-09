@@ -26,8 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    DepartmentsModule,
-    
+    DepartmentsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [EmployeesService],

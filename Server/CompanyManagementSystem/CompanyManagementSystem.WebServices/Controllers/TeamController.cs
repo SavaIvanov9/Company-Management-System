@@ -16,7 +16,8 @@
         private readonly ITeamService service;
         private readonly IPagingService pager;
 
-        public TeamController(ITeamService service, IPagingService pager)
+        public TeamController(ITeamService service, IPagingService pager, ICookieService cookieService)
+            : base(cookieService)
         {
             this.service = service;
             this.pager = pager;

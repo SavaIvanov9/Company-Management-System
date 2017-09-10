@@ -16,12 +16,11 @@
     [Route("api/Auth")]
     public class AuthorizationController : BaseController
     {
-        private readonly ICookieService cookieService;
         private readonly IEmployeeService employeeService;
 
-        public AuthorizationController(ICookieService cookieService, IEmployeeService employeeService)
+        public AuthorizationController(IEmployeeService employeeService, ICookieService cookieService)
+            : base (cookieService)
         {
-            this.cookieService = cookieService;
             this.employeeService = employeeService;
         }
 

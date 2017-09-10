@@ -13,7 +13,8 @@
         private readonly IEmployeeService service;
         private readonly IPagingService pager;
         
-        public EmployeeController(IEmployeeService service, IPagingService pager)
+        public EmployeeController(IEmployeeService service, IPagingService pager, ICookieService cookieService)
+            : base(cookieService)
         {
             this.service = service;
             this.pager = pager;

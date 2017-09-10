@@ -12,7 +12,8 @@
     {
         private readonly IPermissionService service;
 
-        public PermissionController(IPermissionService service)
+        public PermissionController(IPermissionService service, ICookieService cookieService)
+            : base(cookieService)
         {
             this.service = service;
         }

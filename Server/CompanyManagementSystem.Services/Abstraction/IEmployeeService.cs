@@ -7,11 +7,11 @@
 
     public interface IEmployeeService
     {
-        IQueryable<Employee> GetAll();
+        IQueryable<EmployeeViewModel> GetAll();
         IQueryable<EmployeeViewModel> GetEmployeesByTeam(long id);
         IQueryable<EmployeeViewModel> GetEmployeesByDepartment(long id);
         long CreateEmployee(Employee newEmployee, IEnumerable<long> teamIds);
         long DoesEmployeeExists(string userName, string passWord);
-        Employee GetById(long id);
+        EmployeeViewModel GetById(long id);
     }
 }

@@ -5,6 +5,7 @@
     using Services.Abstraction;
     using System;
     using System.Linq;
+    using DbModels;
 
     [Route("api/[controller]")]
     public abstract class BaseController : Controller
@@ -18,6 +19,20 @@
             this.data = data;
             this.encryptor = encryptor;
             this.key = "JS Sucks";
+        }
+
+        public IActionResult IsAuthorized()
+        {
+            var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
+
+            if (!this.ValidateCookie(cookie))
+            {
+                return this.BadRequest("Invalid cookie!");
+            }
+
+            this.ExtendCookie(cookie);
+
+            return null;
         }
 
         public string EncryptString(string value)
@@ -34,7 +49,15 @@
 
         public string CreateCookie(string name, string password, long id)
         {
-            return this.EncryptString($"{name}-{password}-{id}");
+            var cookie = new Cookie()
+            {
+                Content = this.EncryptString($"{name}-{password}-{id}")
+            };
+
+            this.data.CookieRepository.Add(cookie);
+            this.data.SaveChanges();
+
+            return cookie.Content;
         }
 
         public bool ValidateCookie(string value)

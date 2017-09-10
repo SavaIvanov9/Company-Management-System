@@ -15,20 +15,31 @@
         {
         }
 
-        public IQueryable<Team> GetAll()
+        public IQueryable<TeamViewModel> GetAll()
         {
             var result = this.data.TeamRepository
                 .All()
-                .Where(x => !x.IsDeleted);
+                .Where(x => !x.IsDeleted)
+                .Select(x => new TeamViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                });
 
             return result;
         }
 
-        public Team GetById(long id)
+        public TeamViewModel GetById(long id)
         {
             var result = this.data.TeamRepository
                 .All()
-                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+                .Where(x => x.Id == id && x.IsDeleted == false)
+                .Select(x => new TeamViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                })
+                .FirstOrDefault();
 
             return result;
         }

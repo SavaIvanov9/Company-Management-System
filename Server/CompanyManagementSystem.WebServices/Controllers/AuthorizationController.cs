@@ -65,7 +65,7 @@
 
             if (id <= 0)
             {
-                return this.BadRequest("Incorre username or password");
+                return this.BadRequest("Incorrect username or password");
             }
 
             return this.Ok(this.CreateCookie(loginData.Username, loginData.Password, id));

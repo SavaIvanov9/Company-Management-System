@@ -21,7 +21,7 @@
             this.pager = pager;
         }
 
-        [HttpGet]
+        [HttpGet("GetPage")]
         public IActionResult Get(int itemsPerPage, int pageNumber)
         {
             var data = this.service.GetAll();
@@ -41,8 +41,14 @@
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public IActionResult GetById(long id)
         {
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
+            {
+                return this.IsAuthorized();
+            }
+
             var result = this.service.GetById(id);
 
             return this.Ok(result);

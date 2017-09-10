@@ -2,13 +2,13 @@ import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/cor
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
+import { User as Manager } from '../profile/models/user.model';
+import { Position } from './models/position.model';
+import { RegisterService } from './services/register.service';
 import { Router } from '@angular/router';
 import { Team } from './../teams/models/team.model';
-import { Position } from './models/position.model';
-import { User as Manager } from '../profile/models/user.model';
 import { TeamsService } from './../teams/services/teams.service';
 import { UserCreateModel } from './models/userCreateModel';
-import { RegisterService } from './services/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -82,14 +82,14 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     console.log(this.registerForm.value);
     console.log('submit');
     const data = new UserCreateModel();
-    data.Username = this.registerForm.value.username;
-    data.FirstName = this.registerForm.value.firstName;
-    data.LastName = this.registerForm.value.lastName;
-    data.Age = this.registerForm.value.age;
-    data.Email = this.registerForm.value.email;
-    data.Password = this.registerForm.value.password;
+    data.Username = this.registerForm.value.username(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
+    data.FirstName = this.registerForm.value.firstName(null, [Validators.required]);
+    data.LastName = this.registerForm.value.lastName(null, [Validators.required]);
+    data.Age = this.registerForm.value.age(null, [Validators.required, Validators.pattern('^[1-9][0-9]{3}$')]);
+    data.Email = this.registerForm.value.email(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
+    data.Password = this.registerForm.value.password(null, Validators.required);
     data.ManagerId = this.registerForm.value.manager;
-    data.PositionId = this.registerForm.value.position;
+    data.PositionId = this.registerForm.value.position(null, Validators.required);
     data.TeamIds = this.registerForm.value.teams.map(e => e.id);
     console.log(data);
 

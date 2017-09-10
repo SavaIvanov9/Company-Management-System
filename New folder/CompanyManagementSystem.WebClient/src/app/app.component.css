@@ -1,9 +1,8 @@
 li>a {
   font-weight: bold;
-  color: #AD0074;
+  color: rgba(9, 54, 24, 0.8);
 }
 
 p.navbar-brand {
-  font-weight: bold;
-  color: #AD0074;
+  color: rgba(9, 54, 24, 0.8);
 }

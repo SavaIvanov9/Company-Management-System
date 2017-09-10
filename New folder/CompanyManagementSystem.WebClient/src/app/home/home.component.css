@@ -3,5 +3,8 @@ h1 {
     margin-top: 50px;
 }
 
-legend { color: #AD0074;
+legend {
+    color: #3F6F7E;
+    font-size: 36px;
+    text-decoration: underline;
 }

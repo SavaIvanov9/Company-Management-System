@@ -1,19 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { CommonModule } from '@angular/common';
-import { CreateTeamFormComponent } from './createTeamForm/create-team-form.component';
-import { EmployeesService } from '../teams/services/employees.service';
-import { NgModule } from '@angular/core';
-import { TeamsDetailsComponent } from './components/teams-details.component';
-import { TeamsRoutingModule } from './teams-routing.module';
 import { TeamsService } from './services/teams.service';
+import { TeamsRoutingModule } from './teams-routing.module';
+import { EmployeesService } from '../teams/services/employees.service';
+import { TeamsDetailsComponent } from './components/teams-details.component';
+import { CreateTeamFormComponent } from './createTeamForm/create-team-form.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TeamsRoutingModule,
+    TeamsRoutingModule
   ],
   declarations: [
     TeamsDetailsComponent,

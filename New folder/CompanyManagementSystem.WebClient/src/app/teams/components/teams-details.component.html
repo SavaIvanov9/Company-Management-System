@@ -5,8 +5,11 @@
       <div class="row text-center">
         <div class="col-md-12" class="some" *ngFor="let user of users">
           <div class="col-1-4">
-            <h3>
-            <span class="navbar-left">Position:</span><strong> {{user.positionName}}</strong><br><span class="navbar-left">Username:</span><strong> {{user.username}}</strong><br><span class="navbar-left">First name:</span><strong> {{user.firstName}}</strong><br><span class="navbar-left">Last name:</span><strong> {{user.lastName}}</strong>
+            <h3 class="border">
+              <span class="navbar-left">Position:<strong> {{user.positionName}}</strong></span><br>
+              <span class="navbar-left">Username:<strong> {{user.username}}</strong></span><br>
+              <span class="navbar-left">First name:<strong> {{user.firstName}}</strong></span><br>
+              <span class="navbar-left">Last name:<strong> {{user.lastName}}</strong></span>
             </h3>
           </div>
         </div>

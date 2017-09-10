@@ -12,8 +12,7 @@
     {
         private readonly IPositionService service;
 
-        public PositionController(IPositionService service, ICookieService cookieService)
-            : base(cookieService)
+        public PositionController(IPositionService service)
         {
             this.service = service;
         }

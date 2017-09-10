@@ -14,14 +14,14 @@
 
     [EnableCors("MyPolicy")]
     [Route("api/Auth")]
-    //[Route("api/[controller]")]
     public class AuthorizationController : BaseController
     {
+        private readonly ICookieService cookieService;
         private readonly IEmployeeService employeeService;
 
-        public AuthorizationController(IEmployeeService employeeService, ICookieService cookieService)
-            : base (cookieService)
+        public AuthorizationController(ICookieService cookieService, IEmployeeService employeeService)
         {
+            this.cookieService = cookieService;
             this.employeeService = employeeService;
         }
 
@@ -63,7 +63,7 @@
 
             if (id <= 0)
             {
-                return this.BadRequest("Incorrect username or password");
+                return this.BadRequest("Incorre username or password");
             }
 
             return this.Ok(this.cookieService.CreateCookie(loginData.Username, loginData.Password, id));

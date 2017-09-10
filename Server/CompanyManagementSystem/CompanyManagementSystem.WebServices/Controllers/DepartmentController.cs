@@ -14,8 +14,7 @@
         private readonly IDepartmentService service;
         private readonly IPagingService pager;
 
-        public DepartmentController(IDepartmentService service, IPagingService pager, ICookieService cookieService)
-            : base(cookieService)
+        public DepartmentController(IDepartmentService service, IPagingService pager)
         {
             this.service = service;
             this.pager = pager;

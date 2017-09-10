@@ -12,9 +12,8 @@
     {
         private readonly IEmployeeService service;
         private readonly IPagingService pager;
-
-        public EmployeeController(IEmployeeService service, IPagingService pager, ICookieService cookieService)
-            : base(cookieService)
+        
+        public EmployeeController(IEmployeeService service, IPagingService pager)
         {
             this.service = service;
             this.pager = pager;
@@ -42,13 +41,6 @@
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var coockieVallidationResult = this.ValidateCoockie();
-
-            if (coockieVallidationResult != null)
-            {
-                return coockieVallidationResult;
-            }
-
             var result = this.service.GetById(id);
 
             return this.Ok(result);

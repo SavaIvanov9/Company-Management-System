@@ -43,6 +43,7 @@ import { UnderlineItemDirective } from './shared/underlineItem.directive';
     DepartmentsModule,
     HttpModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [CookieService, LoginService],

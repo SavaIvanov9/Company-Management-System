@@ -11,6 +11,7 @@
         IQueryable<EmployeeViewModel> GetEmployeesByTeam(long id);
         IQueryable<EmployeeViewModel> GetEmployeesByDepartment(long id);
         long CreateEmployee(Employee newEmployee, IEnumerable<long> teamIds);
+        long DoesEmployeeExists(string userName, string passWord);
         Employee GetById(long id);
     }
 }

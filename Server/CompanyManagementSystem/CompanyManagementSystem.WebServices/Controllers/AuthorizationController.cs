@@ -50,16 +50,23 @@
         [HttpPost("LogIn")]
         public IActionResult LogIn([FromBody]LogInModel loginData)
         {
-            var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
+            //var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
 
-            if (!this.cookieService.ValidateCookie(cookie))
+            //if (!this.cookieService.ValidateCookie(cookie))
+            //{
+            //    return this.BadRequest("Invalid cookie!");
+            //}
+
+            //this.cookieService.ExtendCookie(cookie);
+
+            var id = this.employeeService.DoesEmployeeExists(loginData.Username, loginData.Password);
+
+            if (id <= 0)
             {
-                return this.BadRequest("Invalid cookie!");
+                return this.BadRequest("Incorre username or password");
             }
 
-            this.cookieService.ExtendCookie(cookie);
-
-            return null;
+            return this.Ok(this.cookieService.CreateCookie(loginData.Username, loginData.Password, id));
         }
     }
 }

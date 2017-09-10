@@ -13,25 +13,25 @@ import { HttpClient } from '../../core/services/http-client';
 @Injectable()
 export class LoginService {
 
-    private tokenUrl: string = DomainUrl + 'Token';
-    private identityURL: string = DomainUrl + 'api/account/identity';
-    private logoutUrl: string = DomainUrl + 'api/account/logout';
+    // private tokenUrl: string = DomainUrl + 'Token';
+    // private identityURL: string = DomainUrl + 'api/account/identity';
+    // private logoutUrl: string = DomainUrl + 'api/account/logout';
 
-    private token: string;
-    private username: Observable<string>;
+    private authUrl: string = DomainUrl + 'api/Auth';
 
-    constructor(private httpClient: HttpClient) {
+    // private token: string;
+    // private username: Observable<string>;
+
+    constructor(private http: HttpClient) {
     }
 
-    GetToken(credentials: Credentials)
-        //:Observable<Cookie> 
-        {
-        let params = new URLSearchParams();
-        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    getToken(credentials: Credentials): Observable<string> {
+        // let params = new URLSearchParams();
+        // let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
-        params.set('grant_type', 'password');
-        params.set('UserName', credentials.UserName);
-        params.set('Password', credentials.Password);
+        // params.set('grant_type', 'password');
+        // params.set('UserName', credentials.UserName);
+        // params.set('Password', credentials.Password);
 
         // return this.httpClient.postWithOptions(this.tokenUrl, params, { headers: headers })
         //     .map((res: Response) => {
@@ -42,5 +42,14 @@ export class LoginService {
         //             return Observable.throw('Error!');
         //         }
         //     });
+
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let params = new URLSearchParams();
+
+        return this.http.postWithOptions(this.authUrl + '/LogIn', credentials, { headers: headers })
+            .map((res: Response) => res.json());
+
+        // return this.http.post(this.authUrl + '/LogIn', credentials)
+        //     .map((res: Response) => res.json());
     }
 }

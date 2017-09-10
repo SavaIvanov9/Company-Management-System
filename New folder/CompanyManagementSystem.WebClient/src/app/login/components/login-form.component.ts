@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 import { Credentials } from '../models/credentials.model';
 import { Cookie } from '../models/cookie.model';
@@ -13,12 +14,15 @@ import { LoginService } from '../services/login.service';
 
 export class LoginFormComponent implements OnInit {
 
+    private str: string;
     private credentials: Credentials;
     private isLogging: boolean;
     // private authLoaded: boolean;
     private wrongUserPass: boolean;
+    private cookie: Cookie;
 
-    constructor(private loginService: LoginService) {
+    constructor(private loginService: LoginService,
+        private cookieService: CookieService) {
         this.credentials = new Credentials();
     }
 
@@ -29,10 +33,19 @@ export class LoginFormComponent implements OnInit {
         this.wrongUserPass = false;
     }
 
-    GetToken() {
+    logIn() {
+        console.log(this.credentials);
         this.isLogging = true;
-        this.loginService.GetToken(this.credentials)
-        //     .catch(error => this.credentials = undefined)
+        this.loginService.getToken(this.credentials)
+            .subscribe((cookie: string) => this.setCookie(cookie),
+            error => this.wrongCredentials(error),
+            () => {//this.router.navigate(['/about'])
+                // if()
+                // console.log('Loged in successfuly')
+            });
+        // .catch(error => this.credentials = undefined)
+        // .map((cookie: Cookie) => this.cookie = cookie);
+        //     
         //     .map((cookie: Cookie) => this.cookie = cookie)
         //     .map(() =>
         //     {             
@@ -46,7 +59,14 @@ export class LoginFormComponent implements OnInit {
         //  () => this.router.navigate(['/about']));
     }
 
-    WrongCredentials(error) {
+    setCookie(cookieValue: string) {
+        this.cookie = new Cookie();
+        this.cookie.value = cookieValue;
+        console.log(this.cookie);
+        this.cookieService.set('CMS-Cookie', this.cookie.value);
+    }
+
+    wrongCredentials(error) {
         console.log(error)
         this.isLogging = false;
         this.wrongUserPass = true;

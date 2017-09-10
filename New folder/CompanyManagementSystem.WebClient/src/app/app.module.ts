@@ -1,6 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CookieService } from 'ngx-cookie-service';
+import { LoginService } from './login/services/login.service';
 
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AppComponent } from './app.component';
@@ -33,10 +35,10 @@ import { RegisterFormComponent } from './register/register-form.component';
     DepartmentsModule,
     HttpModule,
     ReactiveFormsModule,
-
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [CookieService],
+  providers: [CookieService, LoginService],
   bootstrap: [AppComponent]
 
 })

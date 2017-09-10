@@ -10,14 +10,16 @@ export class HttpClient {
     { }
 
     private createAuthorizationHeader(): Headers {
-        const headers = new Headers({ 'Content-Type': 'application/json' });
-        let coockie = this.cookieService.get('auth');
-
-        if (coockie) {
-            headers.set('Authorization', coockie)
+        const headers = new Headers({ 'Content-Type': 'application/json'});
+        let cookie = this.cookieService.get('auth');
+        console.log(`cookie`)
+        console.log(cookie)
+        if (cookie) {
+            headers.set('Authorization', cookie);
+            return headers;
         }
 
-        return headers;
+        return null;
     }
 
     public get(url) {
@@ -39,7 +41,7 @@ export class HttpClient {
     }
 
     public postWithOptions(url, data, options: RequestOptionsArgs) {
-        // let headers = this.createAuthorizationHeader();
+        let headers = this.createAuthorizationHeader();
         return this.http.post(url, data, options);
     }
 

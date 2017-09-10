@@ -1,21 +1,20 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
+import { EmployeesService } from './../services/employees.service';
 import { Router } from '@angular/router';
 import { Team } from './../models/team.model';
-import { User } from '../../profile/models/user.model';
-
-import { EmployeesService } from './../services/employees.service'
+import { TeamCreateModel } from './../models/teamCreate.model';
 import { TeamsService } from './../services/teams.service';
-import { TeamCreateModel } from './../models/teamCreate.model'
+import { User } from '../../profile/models/user.model';
 
 @Component({
   selector: 'app-create-team-form',
   templateUrl: './create-team-form.component.html',
   styleUrls: ['./create-team-form.component.css']
 })
-export class CreateTeamFormComponent {
+export class CreateTeamFormComponent implements OnInit, OnChanges {
 
   constructor(private teamsService: TeamsService,
     private employeeService: EmployeesService,
@@ -23,17 +22,17 @@ export class CreateTeamFormComponent {
     private router: Router,
     private fb: FormBuilder) { }
 
-  teamForm
+  teamForm;
 
   team = {
     employees: []
-  }
+  };
 
   allEmployees = [];
 
   get employees(): FormArray {
     return this.teamForm.get('employees') as FormArray;
-  };
+  }
 
   ngOnInit() {
     const id = this.getDepartmentId();
@@ -55,23 +54,23 @@ export class CreateTeamFormComponent {
   }
 
   private onSubmit() {
-    console.log("submit")
+    console.log('submit');
     console.log(this.teamForm.value);
-    let data = new TeamCreateModel();
+    const data = new TeamCreateModel();
     data.TeamName = this.teamForm.value.name;
     data.DepartmentId = this.teamForm.value.departmentId;
     data.EmployeeIds = this.teamForm.value.employees.map(e => e.id);
-    console.log(data)
+    console.log(data);
     this.teamsService.createTeam(data).subscribe(() => this.ngOnInit());
   }
 
-  private ngOnChanges() {
+  public ngOnChanges() {
     this.setEmployees(this.team.employees);
   }
 
   private setEmployees(employees) {
     const employeeFGs = employees.map(emp => this.fb.group(emp));
-    //const employeeFGs = employees.map(emp => emp.id);
+    // const employeeFGs = employees.map(emp => emp.id);
     const employeeFormArray = this.fb.array(employeeFGs);
     this.teamForm.setControl('employees', employeeFormArray);
   }

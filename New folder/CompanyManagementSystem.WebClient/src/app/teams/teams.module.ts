@@ -6,7 +6,6 @@ import { EmployeesService } from '../teams/services/employees.service';
 import { NgModule } from '@angular/core';
 import { TeamsDetailsComponent } from './components/teams-details.component';
 import { TeamsRoutingModule } from './teams-routing.module';
-import { TeamsService } from './services/teams.service';
 
 @NgModule({
   imports: [
@@ -19,7 +18,7 @@ import { TeamsService } from './services/teams.service';
     TeamsDetailsComponent,
     CreateTeamFormComponent
   ],
-  providers: [TeamsService, EmployeesService],
+  providers: [EmployeesService],
 
 })
 

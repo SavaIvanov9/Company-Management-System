@@ -16,12 +16,42 @@
       <label for="">Age</label>
       <input type="text" class="form-control" formControlName="age">
     </div>
-      <label for="">Email</label>
-      <input type="email" class="form-control" formControlName="email">
-      <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div class="form-group">
       <label for="">Password</label>
       <input type="password" class="form-control" formControlName="password">
     </div>
-      <button class="">Submit</button>
+    <div class="form-group">
+      <label for="">Add Position</label>
+      <select class="form-control" formControlName="position">
+      <option  *ngFor="let position of positions" [value]="position.id">{{position.name}}</option>
+    </select>
+    </div>
+    <label for="">Add Manager</label>
+    <div class="form-group">
+      <select class="form-control" formControlName="manager">
+      <option  *ngFor="let manager of allManagers" [value]="manager.id">{{manager.firstName}} {{manager.lastName}}</option>
+    </select>
+    </div>
+    <div formArrayName="teams" class="well well-lg">
+      <div *ngFor="let team of teams.controls; let i=index" [formGroupName]="i">
+        <!-- The repeated address template -->
+        <h4> Team#{{i + 1}}</h4>
+        <div style="margin-left: 1em;">
+          <div class="form-group">
+            <select class="form-control" formControlName="id">
+                  <option  *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
+                </select>
+          </div>
+        </div>
+        <br>
+        <!-- End of the repeated address template -->
+      </div>
+      <button (click)="addTeam()" type="button">Add a Team</button>
+    </div>
+
+
+    <button class="">SUBMIT</button>
   </form>
 </div>

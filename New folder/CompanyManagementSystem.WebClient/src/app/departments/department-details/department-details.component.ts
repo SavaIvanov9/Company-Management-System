@@ -1,11 +1,10 @@
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { DepartmentsService } from './../departments.service';
-
 import { Department } from '../models/department.model';
+import { DepartmentsService } from './../departments.service';
 import { Team } from '../../teams/models/team.model';
- 
+
 @Component({
   selector: 'app-department-details',
   templateUrl: './department-details.component.html',
@@ -20,7 +19,7 @@ export class DepartmentDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    //const id = + this.activatedRoute.snapshot.params['id'];
+    // const id = + this.activatedRoute.snapshot.params['id'];
 
     // this.departmentsSevice
     //   .getDepartmentById(id)
@@ -30,7 +29,7 @@ export class DepartmentDetailsComponent implements OnInit {
     //   }
     //   );
 
-    let id = this.GetDepartmentId();
+    const id = this.GetDepartmentId();
     this.GetDepartmentDetails(id);
     this.GetTeams(id);
   }

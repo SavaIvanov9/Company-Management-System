@@ -22,6 +22,9 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
+        public CookieRepository CookieRepository =>
+            (CookieRepository)this.GetRepository<Cookie>();
+
         public EmployeeRepository EmployeeRepository =>
             (EmployeeRepository)this.GetRepository<Employee>();
 
@@ -70,6 +73,8 @@
                 type = typeof(TeamRepository);
             else if (repositoryType.IsAssignableFrom(typeof(Department)))
                 type = typeof(DepartmentRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(Cookie)))
+                type = typeof(CookieRepository);
         }
     }
 }

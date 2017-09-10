@@ -14,6 +14,8 @@
             //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
         }
 
+        public virtual IDbSet<Cookie> Cookies { get; set; }
+
         public virtual IDbSet<Employee> Employees { get; set; }
 
         public virtual IDbSet<Position> Positions { get; set; }

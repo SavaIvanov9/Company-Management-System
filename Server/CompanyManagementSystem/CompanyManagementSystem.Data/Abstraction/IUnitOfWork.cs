@@ -4,6 +4,8 @@
 
     public interface IUnitOfWork
     {
+        CookieRepository CookieRepository { get; }
+
         EmployeeRepository EmployeeRepository { get; }
 
         PositionRepository PositionRepository { get; }

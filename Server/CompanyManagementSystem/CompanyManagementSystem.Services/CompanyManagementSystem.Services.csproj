@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\ICookieService.cs" />
     <Compile Include="Abstraction\IDepartmentService.cs" />
     <Compile Include="Abstraction\IEmployeeService.cs" />
     <Compile Include="Abstraction\IPagingService.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Abstraction\IPermissionService.cs" />
     <Compile Include="Abstraction\ITeamService.cs" />
     <Compile Include="Base\BaseService.cs" />
+    <Compile Include="CookieService.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="Models\DepartmenViewModel.cs" />
@@ -74,6 +76,10 @@
     <ProjectReference Include="..\CompanyManagementSystem.DbModels\CompanyManagementSystem.DbModels.csproj">
       <Project>{d1a8af87-9ce9-4140-8f9c-3aa1eac76e65}</Project>
       <Name>CompanyManagementSystem.DbModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyManagementSystem.Encryption\CompanyManagementSystem.Encryption.csproj">
+      <Project>{07ed9e02-8907-46ec-bb85-25009d4f0b4f}</Project>
+      <Name>CompanyManagementSystem.Encryption</Name>
     </ProjectReference>
     <ProjectReference Include="..\CompanyManagementSystem.ModelMapping\CompanyManagementSystem.ModelMapping.csproj">
       <Project>{7B432414-3743-49EF-82E0-B3BCB8B0E2A7}</Project>

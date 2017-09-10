@@ -50,7 +50,7 @@
         }
 
         [HttpGet("GetByDepartment")]
-        public IActionResult Get(int departmentId)
+        public IActionResult Get(int departmentId )
         {
             var result = this.service.GetTeamsByDepartment(departmentId);
 

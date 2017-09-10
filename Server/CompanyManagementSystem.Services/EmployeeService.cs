@@ -21,20 +21,47 @@
             this.mapper = mapper;
         }
 
-        public IQueryable<Employee> GetAll()
+        public IQueryable<EmployeeViewModel> GetAll()
         {
             var result = this.data.EmployeeRepository
                 .All()
-                .Where(x => !x.IsDeleted);
+                .Where(x => !x.IsDeleted)
+                .Select(x => new EmployeeViewModel()
+                {
+                    Id = x.Id,
+                    Username = x.Username,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Age = x.Age,
+                    Email = x.Email,
+                    ManagerId = x.ManagerId,
+                    PositionId = x.PositionId,
+                    PositionName = x.Position.Name,
+                    CreatedOn = x.CreatedOn
+                });
 
             return result;
         }
 
-        public Employee GetById(long id)
+        public EmployeeViewModel GetById(long id)
         {
             var result = this.data.EmployeeRepository
                 .All()
-                .FirstOrDefault(x => x.Id == id && x.IsDeleted == false);
+                .Where(x => x.Id == id && x.IsDeleted == false)
+                .Select(x => new EmployeeViewModel()
+                {
+                    Id = x.Id,
+                    Username = x.Username,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Age = x.Age,
+                    Email = x.Email,
+                    ManagerId = x.ManagerId,
+                    PositionId = x.PositionId,
+                    PositionName = x.Position.Name,
+                    CreatedOn = x.CreatedOn
+                })
+                .FirstOrDefault();
 
             return result;
         }

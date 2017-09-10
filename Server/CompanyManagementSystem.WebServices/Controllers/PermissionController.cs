@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Data.Abstraction;
 
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
@@ -12,8 +13,8 @@
     {
         private readonly IPermissionService service;
 
-        public PermissionController(IPermissionService service, ICookieService cookieService)
-            : base(cookieService)
+        public PermissionController(IPermissionService service,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
             this.service = service;
         }

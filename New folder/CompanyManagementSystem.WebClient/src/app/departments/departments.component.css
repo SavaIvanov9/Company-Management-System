@@ -17,9 +17,25 @@ hr {
 
 .text-center {
   text-align: center;
-  margin-top: 100px;
+  color: #3F6F7E;
 }
 accordion-group>.panel {
   background: red;
   color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #3F6F7E;
+}
+
+.spName {
+  font-size: 26px;
+}
+h1 {
+  text-decoration: underline;
+}
+
+.some {
+  margin-top: 50px;
 }

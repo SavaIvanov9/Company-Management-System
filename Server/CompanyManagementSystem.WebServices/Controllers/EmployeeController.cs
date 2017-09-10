@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Data.Abstraction;
 
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
@@ -13,14 +14,14 @@
         private readonly IEmployeeService service;
         private readonly IPagingService pager;
 
-        public EmployeeController(IEmployeeService service, IPagingService pager, ICookieService cookieService)
-            : base(cookieService)
+        public EmployeeController(IEmployeeService service, IPagingService pager,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
             this.service = service;
             this.pager = pager;
         }
 
-        [HttpGet]
+        [HttpGet("GetPage")]
         public IActionResult Get(int itemsPerPage, int pageNumber)
         {
             var data = this.service.GetAll();
@@ -40,13 +41,12 @@
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public IActionResult GetById(long id)
         {
-            var coockieVallidationResult = this.ValidateCoockie();
-
-            if (coockieVallidationResult != null)
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
             {
-                return coockieVallidationResult;
+                return this.IsAuthorized();
             }
 
             var result = this.service.GetById(id);

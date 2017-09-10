@@ -6,13 +6,14 @@ import { EmployeesService } from '../teams/services/employees.service';
 import { NgModule } from '@angular/core';
 import { TeamsDetailsComponent } from './components/teams-details.component';
 import { TeamsRoutingModule } from './teams-routing.module';
+import { TeamsService } from './services/teams.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TeamsRoutingModule,
+    TeamsRoutingModule
   ],
   declarations: [
     TeamsDetailsComponent,

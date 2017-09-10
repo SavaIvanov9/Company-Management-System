@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Abstraction;
+    using Data.Abstraction;
     using DbModels;
     using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
@@ -14,14 +15,15 @@
 
     [EnableCors("MyPolicy")]
     [Route("api/Auth")]
-    //[Route("api/[controller]")]
     public class AuthorizationController : BaseController
     {
+        //private readonly ICookieService cookieService;
         private readonly IEmployeeService employeeService;
 
-        public AuthorizationController(IEmployeeService employeeService, ICookieService cookieService)
-            : base (cookieService)
+        public AuthorizationController(/*ICookieService cookieService,*/ IEmployeeService employeeService,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
+            //this.cookieService = cookieService;
             this.employeeService = employeeService;
         }
 
@@ -42,8 +44,8 @@
             };
 
             var id = this.employeeService.CreateEmployee(newEmployee, registerData.TeamIds);
-            var cookie = this.cookieService.CreateCookie(newEmployee.Username, newEmployee.Password, id);
-
+            //var cookie = this.cookieService.CreateCookie(newEmployee.Username, newEmployee.Password, id);
+            var cookie = this.CreateCookie(newEmployee.Username, newEmployee.Password, id);
             return this.Ok(cookie);
         }
 
@@ -66,7 +68,7 @@
                 return this.BadRequest("Incorrect username or password");
             }
 
-            return this.Ok(this.cookieService.CreateCookie(loginData.Username, loginData.Password, id));
+            return this.Ok(this.CreateCookie(loginData.Username, loginData.Password, id));
         }
     }
 }

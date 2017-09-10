@@ -1,13 +1,14 @@
 <div class="container text-center">
+  <h1><strong>DEPARTMENTS</strong></h1>
   <div class="container-cat" *ngFor="let dep of departments">
     <div class="row">
-      <div class="col-md-12" class="text-center">
+      <div class="col-md-12" class="some">
         <a [routerLink]="['/departments', dep.id]" class="col-1-4">
-          <h1 >{{dep.name}}</h1>
+          <span class="spName"><strong>{{dep.name}}</strong></span>
         </a>
         <hr>
         {{dep.description}} <br>
-        <span>Created on: </span><span><strong>{{dep.createdOn | date: 'd MMM yyyy' }}</strong></span>
+        <span>Created on:<strong>{{dep.createdOn | date: 'd MMM yyyy' }}</strong></span>
       </div>
     </div>
   </div>

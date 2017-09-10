@@ -4,6 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Data.Abstraction;
     using Microsoft.AspNetCore.Cors;
     using Services.Models;
 
@@ -14,8 +15,8 @@
         private readonly IDepartmentService service;
         private readonly IPagingService pager;
 
-        public DepartmentController(IDepartmentService service, IPagingService pager, ICookieService cookieService)
-            : base(cookieService)
+        public DepartmentController(IDepartmentService service, IPagingService pager,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
             this.service = service;
             this.pager = pager;

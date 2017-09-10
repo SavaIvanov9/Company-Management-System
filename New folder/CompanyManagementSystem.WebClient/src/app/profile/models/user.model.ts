@@ -7,5 +7,6 @@ export class User {
     Email: string;
     ManagerId: number;
     PositionId: number;
+    PositionName: string;
     CreatedOn: Date;
 }

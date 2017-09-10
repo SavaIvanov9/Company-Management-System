@@ -26,11 +26,6 @@
             var result = this.data.EmployeeRepository
                 .All()
                 .Where(x => !x.IsDeleted);
-               //.Select(x => new EmployeeReadModel()
-               //{
-               //   
-               //});
-               //.Select(this.mapper.MapDbModelToDtm());
 
             return result;
         }
@@ -59,6 +54,7 @@
                     Email = x.Email,
                     ManagerId = x.ManagerId,
                     PositionId = x.PositionId,
+                    PositionName = x.Position.Name,
                     CreatedOn = x.CreatedOn
                 });
 

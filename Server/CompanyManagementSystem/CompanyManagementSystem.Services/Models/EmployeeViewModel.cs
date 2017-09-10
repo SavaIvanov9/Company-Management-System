@@ -12,6 +12,7 @@
         public string Email { get; set; }
         public long? ManagerId { get; set; }
         public long PositionId { get; set; }
+        public string PositionName { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }

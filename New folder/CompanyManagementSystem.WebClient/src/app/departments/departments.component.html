@@ -6,8 +6,8 @@
           <h1 >{{dep.name}}</h1>
         </a>
         <hr>
-        {{dep.description}} <br><br>
-        {{dep.createdOn | date: 'd MMM yyyy' }}
+        {{dep.description}} <br>
+        <span>Created on: </span><span><strong>{{dep.createdOn | date: 'd MMM yyyy' }}</strong></span>
       </div>
     </div>
   </div>

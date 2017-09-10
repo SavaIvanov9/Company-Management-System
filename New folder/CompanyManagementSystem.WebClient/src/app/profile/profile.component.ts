@@ -1,3 +1,4 @@
+import { User } from './../login/models/user.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   constructor() { }
+
+  user: User;
 
   ngOnInit() {
   }

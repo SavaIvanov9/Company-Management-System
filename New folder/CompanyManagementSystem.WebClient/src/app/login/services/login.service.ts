@@ -43,13 +43,13 @@ export class LoginService {
         //         }
         //     });
 
-        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-        let params = new URLSearchParams();
+        // let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        // let params = new URLSearchParams();
 
-        return this.http.postWithOptions(this.authUrl + '/LogIn', credentials, { headers: headers })
-            .map((res: Response) => res.json());
-
-        // return this.http.post(this.authUrl + '/LogIn', credentials)
+        // return this.http.postWithOptions(this.authUrl + '/LogIn', credentials, { headers: headers })
         //     .map((res: Response) => res.json());
+
+        return this.http.post(this.authUrl + '/LogIn', credentials)
+            .map((res: Response) => res.json());
     }
 }

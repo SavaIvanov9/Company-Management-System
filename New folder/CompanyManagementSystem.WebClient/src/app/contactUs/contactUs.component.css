@@ -3,10 +3,22 @@ h1 {
     text-align: center;
 }
 
+h5 {
+    margin: 0;
+}
+
 div {
     text-align: center;
 }
 
-h5 {
-    margin: 0;
+.container {
+    color: #3F6F7E;
+}
+
+.undr {
+    text-decoration: underline;
+}
+
+.loc {
+    font-size: 20px;
 }

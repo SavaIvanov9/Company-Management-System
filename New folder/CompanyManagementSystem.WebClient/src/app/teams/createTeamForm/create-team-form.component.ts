@@ -34,6 +34,7 @@ export class CreateTeamFormComponent implements OnInit, OnChanges {
     return this.teamForm.get('employees') as FormArray;
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     const id = this.getDepartmentId();
     this.teamForm = new FormGroup({

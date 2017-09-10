@@ -99,5 +99,14 @@
 
             return newEmployee.Id;
         }
+
+        public long DoesEmployeeExists(string userName, string passWord)
+        {
+            var employee = this.data.EmployeeRepository
+                .All()
+                .FirstOrDefault(x => x.Username == userName && x.Password == passWord);
+
+            return employee != null ? employee.Id : -1;
+        }
     }
 }

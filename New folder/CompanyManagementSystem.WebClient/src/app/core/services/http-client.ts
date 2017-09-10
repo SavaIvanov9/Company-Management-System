@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptionsArgs } from '@angular/http';
-// import { CookieService } from '';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class HttpClient {
 
-    constructor(
-        private http: Http,
-        // private cookieService: CookieService
-    ) { }
+    constructor(private http: Http,
+        private cookieService: CookieService)
+    { }
 
     private createAuthorizationHeader(): Headers {
-        const headers = new Headers({ 'Content-Type': 'application/json' });
-        // if (this.cookieService.get('auth')) {
-        //     headers.set('Authorization', 'Bearer ' + this.cookieService.get('auth'))
+        const headers = new Headers({ 'Content-Type': 'application/json'});
+        let cookie = this.cookieService.get('auth');
+        console.log(`cookie`)
+        console.log(cookie)
+        if (cookie) {
+            headers.set('Authorization', cookie);
+            return headers;
+        }
 
-        //     return headers;
-        // }
         return null;
     }
 
@@ -39,7 +41,7 @@ export class HttpClient {
     }
 
     public postWithOptions(url, data, options: RequestOptionsArgs) {
-        // let headers = this.createAuthorizationHeader();
+        let headers = this.createAuthorizationHeader();
         return this.http.post(url, data, options);
     }
 

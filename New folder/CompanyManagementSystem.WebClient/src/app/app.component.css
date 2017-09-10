@@ -1,29 +1,9 @@
-/* .navbar{
-  height: 120px;
-}
-
-.navbar-nav {
-  display: table;
-  float: none;
-  margin: 0 auto;
-  table-layout: fixed;
-  font-size: 1.25em;
-}
-.navbar-nav>li {
-  width: 20px;
-  height: 30px;
-  margin-right: 100px;
-} */
-
 li>a {
   font-weight: bold;
   color: #AD0074;
 }
 
-body {
-  background-color: #690404;
-}
-
-a.navbar-brand {
+p.navbar-brand {
+  font-weight: bold;
   color: #AD0074;
 }

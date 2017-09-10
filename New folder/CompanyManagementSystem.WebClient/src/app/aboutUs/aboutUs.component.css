@@ -5,3 +5,20 @@ h1 {
 h1, h2, h3, h4, h5, div, p {
     text-align: center;
 }
+.container {
+    color: #3F6F7E;
+    max-width: 800px;
+}
+
+a {
+    text-decoration: underline;
+    color: #3F6F7E;
+}
+
+h1>strong {
+    text-decoration: underline;
+}
+
+.secondTitle {
+    font-size: 20px;
+}

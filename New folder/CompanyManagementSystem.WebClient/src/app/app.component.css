@@ -23,3 +23,7 @@ li>a {
 body {
   background-color: #690404;
 }
+
+a.navbar-brand {
+  color: #AD0074;
+}

@@ -23,18 +23,19 @@ export class CreateTeamFormComponent {
     private router: Router,
     private fb: FormBuilder) { }
 
-  teamForm
+  teamForm;
 
   team = {
     employees: []
-  }
+  };
 
   allEmployees = [];
 
   get employees(): FormArray {
     return this.teamForm.get('employees') as FormArray;
-  };
+  }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     const id = this.getDepartmentId();
     this.teamForm = new FormGroup({
@@ -55,23 +56,24 @@ export class CreateTeamFormComponent {
   }
 
   private onSubmit() {
-    console.log("submit")
+    console.log('submit');
     console.log(this.teamForm.value);
-    let data = new TeamCreateModel();
+    const data = new TeamCreateModel();
     data.TeamName = this.teamForm.value.name;
     data.DepartmentId = this.teamForm.value.departmentId;
     data.EmployeeIds = this.teamForm.value.employees.map(e => e.id);
-    console.log(data)
+    console.log(data);
     this.teamsService.createTeam(data).subscribe(() => this.ngOnInit());
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   private ngOnChanges() {
     this.setEmployees(this.team.employees);
   }
 
   private setEmployees(employees) {
     const employeeFGs = employees.map(emp => this.fb.group(emp));
-    //const employeeFGs = employees.map(emp => emp.id);
+    // const employeeFGs = employees.map(emp => emp.id);
     const employeeFormArray = this.fb.array(employeeFGs);
     this.teamForm.setControl('employees', employeeFormArray);
   }

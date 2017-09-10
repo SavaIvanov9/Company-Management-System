@@ -1,5 +1,39 @@
-
-    <div id="page-content-wrapper">
-        <app-departments></app-departments>
-        <h1>HOME WORKS</h1>
+<div class="tabular-form">
+    <div id="legend">
+        <legend align="center"><strong>WELCOME</strong></legend>
     </div>
+</div>
+
+<fieldset class="animations">
+    <div id="carousel-travellersApp" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-travellersApp" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-travellersApp" data-slide-to="1"></li>
+            <li data-target="#carousel-travellersApp" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" align="center">
+            <div class="item active" id="firstImage">
+                <img src="../../assets/images/pic-1-1.png" height="1300" width="800">
+            </div>
+            <div class="item" id="secondImage">
+                <img src="../../assets/images/pic-2-1.jpg" height="1300" width="800">
+            </div>
+            <div class="item" id="secondImage">
+                <img src="../../assets/images/pic-3-1.jpg" height="1300" width="800">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#carousel-travellersApp" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-travellersApp" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</fieldset>

@@ -36,6 +36,6 @@ export class TeamsService {
 
   public createTeam(teamCreateModel: TeamCreateModel) {
     return this.http.post(this.teamUrl, teamCreateModel)
-      .map((res: Response) => res.json())
+      .map((res: Response) => res.json());
   }
 }

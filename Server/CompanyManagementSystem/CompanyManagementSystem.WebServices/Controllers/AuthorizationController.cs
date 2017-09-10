@@ -5,17 +5,60 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Abstraction;
+    using DbModels;
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
+    using Models;
+    using Services.Abstraction;
+    using Services.Models;
 
+    [EnableCors("MyPolicy")]
+    [Route("api/Auth")]
     public class AuthorizationController : BaseController
     {
-        public IActionResult Register()
+        private readonly ICookieService cookieService;
+        private readonly IEmployeeService employeeService;
+
+        public AuthorizationController(ICookieService cookieService, IEmployeeService employeeService)
         {
-            return null;
+            this.cookieService = cookieService;
+            this.employeeService = employeeService;
         }
 
-        public IActionResult LogIn()
+        [HttpPost("Register")]
+        public IActionResult Register([FromBody]RegisterModel registerData)
         {
+            var newEmployee = new Employee()
+            {
+                Username = registerData.Username,
+                Password = registerData.Password,
+                FirstName = registerData.FirstName,
+                LastName = registerData.LastName,
+                Age = registerData.Age,
+                Email = registerData.Email,
+                ManagerId = registerData.ManagerId,
+                PositionId = registerData.PositionId,
+                CreatedBy = "S",
+            };
+
+            var id = this.employeeService.CreateEmployee(newEmployee, registerData.TeamIds);
+            var cookie = this.cookieService.CreateCookie(newEmployee.Username, newEmployee.Password, id);
+
+            return this.Ok(cookie);
+        }
+
+        [HttpPost("LogIn")]
+        public IActionResult LogIn([FromBody]LogInModel loginData)
+        {
+            var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
+
+            if (!this.cookieService.ValidateCookie(cookie))
+            {
+                return this.BadRequest("Invalid cookie!");
+            }
+
+            this.cookieService.ExtendCookie(cookie);
+
             return null;
         }
     }

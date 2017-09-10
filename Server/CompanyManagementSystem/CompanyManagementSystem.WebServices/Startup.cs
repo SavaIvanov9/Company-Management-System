@@ -45,7 +45,9 @@
             services.AddTransient<IPositionService, PositionService>();
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<IDepartmentService, DepartmentService>();
+
             services.AddTransient<IPagingService, PagingService>();
+            services.AddTransient<ICookieService, CookieService>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

@@ -1,11 +1,12 @@
 ﻿namespace CompanyManagementSystem.Services
 {
-    using System;
-    using System.Linq;
+    using Abstraction;
     using Data.Abstraction;
     using Encryption;
+    using System;
+    using System.Linq;
 
-    public class CookieService
+    public class CookieService : ICookieService
     {
         private readonly string key;
         private readonly IEncryptor encryptor;

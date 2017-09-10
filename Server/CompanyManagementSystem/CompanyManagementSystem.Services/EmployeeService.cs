@@ -81,5 +81,23 @@
 
             return result;
         }
+
+        public long CreateEmployee(Employee newEmployee, IEnumerable<long> teamIds)
+        {
+            var teams = this.data.TeamRepository
+                .All()
+                .Where(t => t.IsDeleted == false && teamIds.Any(x => x == t.Id))
+                .ToList();
+
+            teams.ForEach(t =>
+            {
+                newEmployee.Teams.Add(t);
+            });
+
+            this.data.EmployeeRepository.Add(newEmployee);
+            this.data.SaveChanges();
+
+            return newEmployee.Id;
+        }
     }
 }

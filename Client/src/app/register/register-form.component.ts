@@ -4,8 +4,11 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Team } from './../teams/models/team.model';
+import { Position } from './models/position.model';
+import { User as Manager } from '../profile/models/user.model';
 import { TeamsService } from './../teams/services/teams.service';
 import { UserCreateModel } from './models/userCreateModel';
+import { RegisterService } from './services/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -13,20 +16,21 @@ import { UserCreateModel } from './models/userCreateModel';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit, OnChanges {
-
-  constructor(private teamsService: TeamsService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private fb: FormBuilder) { }
-
   registerForm;
 
   employee = {
     teams: []
   };
 
-
   allTeams = [];
+  allPositions = [];
+  allManagers = [];
+
+  constructor(private teamsService: TeamsService,
+    private registerService: RegisterService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder) { }
 
   get teams(): FormArray {
     return this.registerForm.get('teams') as FormArray;
@@ -35,6 +39,8 @@ export class RegisterFormComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.initFormGroup();
     this.loadTeams();
+    this.loadPositions();
+    this.loadManagers();
   }
 
   initFormGroup() {
@@ -52,16 +58,24 @@ export class RegisterFormComponent implements OnInit, OnChanges {
   }
 
   private loadTeams() {
-    this.teamsService
-      .getTeams()
+    this.teamsService.getTeams()
       .subscribe((result: Team[]) => {
         this.allTeams = result;
       });
   }
 
-  private loadManagers() {
-  }
   private loadPositions() {
+    this.registerService.getPositions()
+      .subscribe((result: Position[]) => {
+        this.allPositions = result;
+      });
+  }
+
+  private loadManagers() {
+    this.registerService.getManagers()
+      .subscribe((result: Manager[]) => {
+        this.allManagers = result;
+      });
   }
 
   onSubmit() {
@@ -78,8 +92,13 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     data.PositionId = this.registerForm.value.position;
     data.TeamIds = this.registerForm.value.teams.map(e => e.id);
     console.log(data);
-    // this.teamsService.createTeam(data).subscribe(() => this.ngOnInit());
 
+    this.registerService.register(data)
+      .subscribe(() => {
+        console.log('successful registration');
+        this.ngOnInit();
+      },
+      (err) => console.log(err));
   }
   onSelect() {
 
@@ -95,17 +114,17 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     const teamsFormArray = this.fb.array(teamsFGs);
     this.registerForm.setControl('teams', teamsFormArray);
   }
-  addPosition() {
-    this.teams.push(this.fb.group({ id: '' }));
-  }
 
-  addManager() {
-    // this.teams.push();
-  }
+  // addPosition(id: number) {
+  //   this.registerForm.value.position = id;
+  // }
+
+  // addManager(id: number) {
+  //   this.registerForm.value.manager = id;
+  // }
 
   addTeam() {
-
+    //this.registerForm.teams.push(id);
+    this.teams.push(this.fb.group({ id: '' }));
   }
-
-
 }

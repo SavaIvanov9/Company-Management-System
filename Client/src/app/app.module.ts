@@ -19,6 +19,7 @@ import { RegisterFormComponent } from './register/register-form.component';
 import { StrongItemDirective } from './shared/strongItem.directive';
 import { TeamsService } from './teams/services/teams.service';
 import { UnderlineItemDirective } from './shared/underlineItem.directive';
+import { RegisterService } from './register/services/register.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UnderlineItemDirective } from './shared/underlineItem.directive';
     AuthGuard,
     TeamsService,
     CookieService,
-    LoginService
+    LoginService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 

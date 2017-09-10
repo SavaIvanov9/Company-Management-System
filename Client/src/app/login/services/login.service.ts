@@ -25,7 +25,7 @@ export class LoginService {
     constructor(private http: HttpClient) {
     }
 
-    getToken(credentials: Credentials): Observable<string> {
+    getToken(credentials: Credentials): Observable<Cookie> {
         // let params = new URLSearchParams();
         // let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 

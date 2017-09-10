@@ -42,7 +42,6 @@
         [ForeignKey("Position")]
         public long PositionId { get; set; }
 
-        [Required]
         public Position Position { get; set; }
 
         public virtual ICollection<Team> Teams

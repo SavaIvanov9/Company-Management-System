@@ -37,7 +37,7 @@ export class LoginFormComponent implements OnInit {
         console.log(this.credentials);
         this.isLogging = true;
         this.loginService.getToken(this.credentials)
-            .subscribe((cookie: string) => this.setCookie(cookie),
+            .subscribe((cookie: Cookie) => this.setCookie(cookie.Content),
             error => this.wrongCredentials(error),
             () => {//this.router.navigate(['/about'])
                 // if()
@@ -61,9 +61,9 @@ export class LoginFormComponent implements OnInit {
 
     setCookie(cookieValue: string) {
         this.cookie = new Cookie();
-        this.cookie.value = cookieValue;
+        this.cookie.Content = cookieValue;
         console.log(this.cookie);
-        this.cookieService.set('CMS-Cookie', this.cookie.value);
+        this.cookieService.set('CMS-Cookie', this.cookie.Content);
     }
 
     wrongCredentials(error) {

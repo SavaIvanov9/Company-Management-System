@@ -27,7 +27,7 @@
     <div class="form-group">
       <label for="">Add Position</label>
       <select class="form-control" formControlName="position">
-      <option  *ngFor="let position of positions" [value]="position.id">{{position.name}}</option>
+      <option  *ngFor="let position of allPositions" [value]="position.id">{{position.name}}</option>
     </select>
     </div>
     <label for="">Add Manager</label>
@@ -38,7 +38,6 @@
     </div>
     <div formArrayName="teams" class="well well-lg">
       <div *ngFor="let team of teams.controls; let i=index" [formGroupName]="i">
-        <!-- The repeated address template -->
         <h4> Team#{{i + 1}}</h4>
         <div style="margin-left: 1em;">
           <div class="form-group">
@@ -48,7 +47,6 @@
           </div>
         </div>
         <br>
-        <!-- End of the repeated address template -->
       </div>
       <button (click)="addTeam()" type="button">Add a Team</button>
     </div>

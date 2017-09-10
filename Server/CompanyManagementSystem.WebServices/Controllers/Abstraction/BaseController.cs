@@ -47,7 +47,7 @@
             return value;
         }
 
-        public string CreateCookie(string name, string password, long id)
+        public Cookie CreateCookie(string name, string password, long id)
         {
             var cookie = new Cookie()
             {
@@ -57,7 +57,7 @@
             this.data.CookieRepository.Add(cookie);
             this.data.SaveChanges();
 
-            return cookie.Content;
+            return cookie;
         }
 
         public bool ValidateCookie(string value)

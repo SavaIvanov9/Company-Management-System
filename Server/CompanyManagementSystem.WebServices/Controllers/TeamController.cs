@@ -24,7 +24,7 @@
             this.pager = pager;
         }
 
-        [HttpGet]
+        [HttpGet("GetPage")]
         public IActionResult Get(int itemsPerPage, int pageNumber)
         {
             var data = this.service.GetAll();

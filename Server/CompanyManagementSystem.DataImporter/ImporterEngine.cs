@@ -16,9 +16,9 @@
 
         public void Start()
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
-            //this.InsertTestData();
-            //this.DisplayStatus();
+            Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            this.InsertTestData();
+            this.DisplayStatus();
 
             Console.WriteLine(this.data.EmployeeRepository.All().FirstOrDefault().Teams.Count);
         }
@@ -86,7 +86,7 @@
             db.EmployeeRepository
                 .Add(new Employee()
                 {
-                    Username = "User1",
+                    Username = "User",
                     Password = "12345",
                     FirstName = "Test first name",
                     LastName = "Test last name",
@@ -176,12 +176,12 @@
                 {
                     ManagerId = manager.Id,
 
-                    Username = "User1",
-                    Password = "12345",
-                    FirstName = "Test first name",
-                    LastName = "Test last name",
+                    Username = "User" + i,
+                    Password = "12345" + i,
+                    FirstName = "Test first name " + i ,
+                    LastName = "Test last name " + i,
                     Age = 20 + i,
-                    Email = $"Email {i}",
+                    Email = $"Email@{i}",
                     PositionId = i % 2 == 0 ? possition1.Id : possition2.Id,
                     CreatedBy = "S",
                 };

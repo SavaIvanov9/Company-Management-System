@@ -2,7 +2,6 @@
 {
     using Data;
     using Data.Abstraction;
-    using Encryption;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -48,8 +47,7 @@
             services.AddTransient<IDepartmentService, DepartmentService>();
 
             services.AddTransient<IPagingService, PagingService>();
-            services.AddTransient<ICookieService, CookieService>();
-            services.AddTransient<IEncryptor, Encryptor>();
+            services.AddTransient<IEncryptionService, EncryptionService>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

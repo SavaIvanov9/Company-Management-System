@@ -6,6 +6,7 @@
     using Services.Abstraction;
     using System.Linq;
     using System.Net.Http;
+    using Data.Abstraction;
     using Newtonsoft.Json;
     using Services.Models;
 
@@ -16,8 +17,8 @@
         private readonly ITeamService service;
         private readonly IPagingService pager;
 
-        public TeamController(ITeamService service, IPagingService pager, ICookieService cookieService)
-            : base(cookieService)
+        public TeamController(ITeamService service, IPagingService pager,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
             this.service = service;
             this.pager = pager;
@@ -51,7 +52,7 @@
         }
 
         [HttpGet("GetByDepartment")]
-        public IActionResult Get(int departmentId )
+        public IActionResult Get(int departmentId)
         {
             var result = this.service.GetTeamsByDepartment(departmentId);
 

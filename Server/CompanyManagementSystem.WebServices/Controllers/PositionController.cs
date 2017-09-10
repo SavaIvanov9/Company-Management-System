@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Services.Abstraction;
     using System.Linq;
+    using Data.Abstraction;
 
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
@@ -12,8 +13,8 @@
     {
         private readonly IPositionService service;
 
-        public PositionController(IPositionService service, ICookieService cookieService)
-            : base(cookieService)
+        public PositionController(IPositionService service,
+            IEncryptionService encryptor, IUnitOfWork data) : base(data, encryptor)
         {
             this.service = service;
         }

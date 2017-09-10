@@ -29,10 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestGround", "ConsoleTestGround\ConsoleTestGround.csproj", "{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.WebServicesApi", "CompanyManagementSystem.WebServicesApi\CompanyManagementSystem.WebServicesApi.csproj", "{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyManagementSystem.Encryption", "CompanyManagementSystem.Encryption\CompanyManagementSystem.Encryption.csproj", "{07ED9E02-8907-46EC-BB85-25009D4F0B4F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,14 +67,6 @@ Global
 		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07ED9E02-8907-46EC-BB85-25009D4F0B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07ED9E02-8907-46EC-BB85-25009D4F0B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07ED9E02-8907-46EC-BB85-25009D4F0B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07ED9E02-8907-46EC-BB85-25009D4F0B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,7 +80,5 @@ Global
 		{A85DD7EE-260C-409E-B041-C73C51688096} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 		{7B432414-3743-49EF-82E0-B3BCB8B0E2A7} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 		{D594B2FB-7EFF-4F73-84D6-01843AE5A65E} = {9DDB453B-2B88-41DB-B622-5E2CC9760CE4}
-		{56E6BCC3-19EC-4FF8-9ABD-433A3E08508D} = {1A4B5938-E3C3-427A-A2D7-8DBDCAF2656B}
-		{07ED9E02-8907-46EC-BB85-25009D4F0B4F} = {C6FD724C-3F2A-4E8B-A6D0-44D84868241E}
 	EndGlobalSection
 EndGlobal

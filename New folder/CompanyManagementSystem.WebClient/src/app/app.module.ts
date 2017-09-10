@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { RegisterFormComponent } from './register/register-form.component';
     ProfileComponent,
     LogoutComponent,
     RegisterFormComponent,
-],
+  ],
 
   imports: [
     AppRoutingModule,
@@ -35,7 +36,7 @@ import { RegisterFormComponent } from './register/register-form.component';
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 
 })

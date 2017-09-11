@@ -59,7 +59,9 @@
                     ManagerId = x.ManagerId,
                     PositionId = x.PositionId,
                     PositionName = x.Position.Name,
-                    CreatedOn = x.CreatedOn
+                    CreatedOn = x.CreatedOn,
+                    ManagerName = String.Concat(x.Manager.FirstName, " ", x.Manager.LastName),
+                    Teams = x.Teams.Select(t => t.Name)
                 })
                 .FirstOrDefault();
 

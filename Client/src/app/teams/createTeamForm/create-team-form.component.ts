@@ -60,8 +60,9 @@ export class CreateTeamFormComponent implements OnInit, OnChanges {
     data.DepartmentId = this.teamForm.value.departmentId;
     data.EmployeeIds = this.teamForm.value.employees.map(e => e.id);
     console.log(data);
-    this.teamsService.createTeam(data).subscribe((team) => {
-      this.router.navigateByUrl('/teams/' + team.Id);
+    this.teamsService.createTeam(data)
+      .subscribe((team) => {
+      this.router.navigateByUrl('/teams/' + team.id);
     });
   }
 

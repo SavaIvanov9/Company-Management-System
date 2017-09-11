@@ -35,6 +35,15 @@
             return null;
         }
 
+        public long GetCurrentUserId()
+        {
+            var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
+            var decrypted = this.DecryptString(cookie);
+            var idIndex = decrypted.LastIndexOf("-");
+            var id = decrypted.Substring(idIndex + 1);
+            return long.Parse(id);
+        } 
+
         public string EncryptString(string value)
         {
             return this.encryptor.Encrypt(value, key);
@@ -51,7 +60,8 @@
         {
             var cookie = new Cookie()
             {
-                Content = this.EncryptString($"{name}-{password}-{id}")
+                Content = this.EncryptString($"{name}-{password}-{id}"),
+                UserId = id
             };
 
             this.data.CookieRepository.Add(cookie);

@@ -1,6 +1,8 @@
 ﻿namespace CompanyManagementSystem.Services.Models
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
 
     public class EmployeeViewModel
     {
@@ -12,7 +14,10 @@
         public string Email { get; set; }
         public long? ManagerId { get; set; }
         public long PositionId { get; set; }
-        public string PositionName { get; set; }
         public DateTime CreatedOn { get; set; }
+        public string ManagerName { get; set; }
+        public string PositionName { get; set; }
+        public IEnumerable<string> Teams { get; set; }
+
     }
 }

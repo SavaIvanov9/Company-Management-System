@@ -5,6 +5,7 @@ export class AuthService {
     private coockieName: string;
     private cookieValue: string;
 
+    public loggedInUserId: number;
     constructor() {
         this.coockieName = 'CMSCookie';
     }

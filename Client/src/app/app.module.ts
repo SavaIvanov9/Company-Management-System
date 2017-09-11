@@ -21,6 +21,7 @@ import { TeamsService } from './teams/services/teams.service';
 import { UnderlineItemDirective } from './shared/underlineItem.directive';
 import { RegisterService } from './register/services/register.service';
 import { AuthService } from './core/services/auth.service';
+import { ProfileService } from './profile/services/profile.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AuthService } from './core/services/auth.service';
     CookieService,
     LoginService,
     RegisterService,
-    AuthService
+    AuthService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 

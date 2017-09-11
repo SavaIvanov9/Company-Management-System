@@ -59,7 +59,17 @@
                 return this.BadRequest("Incorrect username or password");
             }
 
-            return this.Ok(this.CreateCookie(loginData.Username, loginData.Password, id));
+            var cookie = this.CreateCookie(loginData.Username, loginData.Password, id);
+            return this.Ok(cookie);
+        }
+
+        [HttpGet]
+        public IActionResult GetCurrentUser()
+        {
+            var id = this.GetCurrentUserId();
+            var user = this.employeeService.GetById(id);
+
+            return this.Ok(user);
         }
     }
 }

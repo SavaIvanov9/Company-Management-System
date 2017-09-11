@@ -42,12 +42,6 @@
         [HttpGet]
         public IActionResult Get()
         {
-            var authResult = this.IsAuthorized();
-            if (authResult != null)
-            {
-                return this.IsAuthorized();
-            }
-
             var result = this.service
                 .GetAll()
                 .ToList();

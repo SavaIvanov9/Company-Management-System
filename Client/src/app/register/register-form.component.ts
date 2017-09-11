@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Team } from './../teams/models/team.model';
 import { TeamsService } from './../teams/services/teams.service';
 import { UserCreateModel } from './models/userCreateModel';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -16,6 +17,7 @@ import { UserCreateModel } from './models/userCreateModel';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit, OnChanges {
+  //private emailRegEx: string = '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$';
   registerForm;
 
   employee = {
@@ -30,7 +32,8 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     private registerService: RegisterService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private authService: AuthService) { }
 
   get teams(): FormArray {
     return this.registerForm.get('teams') as FormArray;
@@ -45,11 +48,11 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
   initFormGroup() {
     this.registerForm = new FormGroup({
-      username: new FormControl(null, [Validators.required]),
+      username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
-      age: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required]),
+      age: new FormControl(null, [Validators.required, Validators.pattern('^[1-9][0-9]$')]),
+      email: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       password: new FormControl(null, [Validators.required]),
       manager: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
@@ -80,18 +83,20 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
   onSubmit() {
     const data = new UserCreateModel();
-    data.Username = this.registerForm.value.username(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
-    data.FirstName = this.registerForm.value.firstName(null, [Validators.required]);
-    data.LastName = this.registerForm.value.lastName(null, [Validators.required]);
-    data.Age = this.registerForm.value.age(null, [Validators.required, Validators.pattern('^[1-9][0-9]{3}$')]);
-    data.Email = this.registerForm.value.email(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
-    data.Password = this.registerForm.value.password(null, Validators.required);
+    data.Username = this.registerForm.value.username;
+    data.FirstName = this.registerForm.value.firstName;
+    data.LastName = this.registerForm.value.lastName;
+    data.Age = this.registerForm.value.age;
+    data.Email = this.registerForm.value.email;
+    data.Password = this.registerForm.value.password;
     data.ManagerId = this.registerForm.value.manager;
-    data.PositionId = this.registerForm.value.position(null, Validators.required);
+    data.PositionId = this.registerForm.value.position;
     data.TeamIds = this.registerForm.value.teams.map(e => e.id);
     this.registerService.register(data)
-      .subscribe(() => {
-        this.ngOnInit();
+      .subscribe((cookie) => {
+        this.setCookie(cookie.content);
+        this.authService.loggedInUserId = cookie.UserId;
+        this.router.navigateByUrl('/home');
       },
       (err) => console.log(err));
   }
@@ -110,13 +115,9 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     this.registerForm.setControl('teams', teamsFormArray);
   }
 
-  // addPosition(id: number) {
-  //   this.registerForm.value.position = id;
-  // }
-
-  // addManager(id: number) {
-  //   this.registerForm.value.manager = id;
-  // }
+  setCookie(cookieValue: string) {
+    this.authService.setCookie(cookieValue);
+  }
 
   addTeam() {
     //this.registerForm.teams.push(id);

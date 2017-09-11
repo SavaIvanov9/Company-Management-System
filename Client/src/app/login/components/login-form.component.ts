@@ -41,6 +41,7 @@ export class LoginFormComponent implements OnInit {
         this.loginService.getToken(this.credentials)
             .subscribe((cookie) => {
                 this.setCookie(cookie.content);
+                this.authService.loggedInUserId = cookie.UserId;
                 this.router.navigate(['/home'])
             },
             error => this.wrongCredentials(error),
@@ -50,9 +51,6 @@ export class LoginFormComponent implements OnInit {
     setCookie(cookieValue: string) {
         this.cookie = new Cookie();
         this.cookie.Content = cookieValue;
-
-
-        //this.cookieService.set('CMSCookie', cookieValue);
         this.authService.setCookie(cookieValue);
     }
 

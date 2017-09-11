@@ -12,6 +12,6 @@
 
         TeamViewModel GetById(long id);
 
-        long CreateTeam(TeamCreateModel teamData);
+        TeamViewModel CreateTeam(TeamCreateModel teamData);
     }
 }

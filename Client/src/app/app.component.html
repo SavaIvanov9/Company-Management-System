@@ -18,11 +18,11 @@
           <li><a routerLink="/contactus" appUnderlineItem>Contact Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/profile">Profile</a></li>
-          <li><a routerLink="/departments">Departments</a></li>
-          <li><a routerLink="/logout" class="text-center">Logout</a></li>
-          <li><a routerLink="/login" class="text-center">Login</a></li>
-          <li><a routerLink="/register" class="text-center">Register</a></li>
+          <li><a *ngIf="auth.isAuthenticated" routerLink="/profile">Profile</a></li>
+          <li><a *ngIf="auth.isAuthenticated" routerLink="/departments">Departments</a></li>
+          <li><a *ngIf="auth.isAuthenticated" routerLink="/logout" class="text-center">Logout</a></li>
+          <li><a *ngIf="!auth.isAuthenticated" routerLink="/login" class="text-center">Login</a></li>
+          <li><a *ngIf="!auth.isAuthenticated" routerLink="/register" class="text-center">Register</a></li>
         </ul>
       </div>
     </nav>

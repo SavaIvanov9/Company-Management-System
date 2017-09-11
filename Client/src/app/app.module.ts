@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './core/services/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContactUsComponent } from './contactUs/contactUs.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -20,6 +20,7 @@ import { StrongItemDirective } from './shared/strongItem.directive';
 import { TeamsService } from './teams/services/teams.service';
 import { UnderlineItemDirective } from './shared/underlineItem.directive';
 import { RegisterService } from './register/services/register.service';
+import { AuthService } from './core/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { RegisterService } from './register/services/register.service';
     TeamsService,
     CookieService,
     LoginService,
-    RegisterService
+    RegisterService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 

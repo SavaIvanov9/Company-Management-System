@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptionsArgs } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class HttpClient {
 
     constructor(private http: Http,
-        private cookieService: CookieService)
+        private cookieService: CookieService,
+        private auth: AuthService)
     { }
 
     private createAuthorizationHeader(): Headers {
-        const headers = new Headers({ 'Content-Type': 'application/json'});
-        let cookie = this.cookieService.get('auth');
-        console.log(`cookie`)
-        console.log(cookie)
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        let cookie = this.auth.getCookie();
+
         if (cookie) {
             headers.set('Authorization', cookie);
             return headers;

@@ -24,6 +24,12 @@
         [HttpGet("GetPage")]
         public IActionResult Get(int itemsPerPage, int pageNumber)
         {
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
+            {
+                return this.IsAuthorized();
+            }
+
             var data = this.service.GetAll();
             var result = this.pager.ApplyPaging(data, itemsPerPage, pageNumber);
 
@@ -33,6 +39,12 @@
         [HttpGet]
         public IActionResult Get()
         {
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
+            {
+                return this.IsAuthorized();
+            }
+
             var result = this.service
                 .GetAll()
                 .ToList();
@@ -57,6 +69,12 @@
         [HttpGet("GetEmployeesByTeam")]
         public IActionResult GetEmployeesByTeam(long id)
         {
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
+            {
+                return this.IsAuthorized();
+            }
+
             var result = this.service.GetEmployeesByTeam(id).ToList();
 
             return this.Ok(result);
@@ -65,6 +83,12 @@
         [HttpGet("GetEmployeesByDepartment")]
         public IActionResult GetEmployeesByDepartment(long id)
         {
+            var authResult = this.IsAuthorized();
+            if (authResult != null)
+            {
+                return this.IsAuthorized();
+            }
+
             var result = this.service.GetEmployeesByDepartment(id).ToList();
 
             return this.Ok(result);

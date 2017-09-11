@@ -79,8 +79,6 @@ export class RegisterFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
-    console.log('submit');
     const data = new UserCreateModel();
     data.Username = this.registerForm.value.username;
     data.FirstName = this.registerForm.value.firstName;
@@ -91,11 +89,8 @@ export class RegisterFormComponent implements OnInit, OnChanges {
     data.ManagerId = this.registerForm.value.manager;
     data.PositionId = this.registerForm.value.position;
     data.TeamIds = this.registerForm.value.teams.map(e => e.id);
-    console.log(data);
-
     this.registerService.register(data)
       .subscribe(() => {
-        console.log('successful registration');
         this.ngOnInit();
       },
       (err) => console.log(err));

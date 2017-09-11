@@ -1,7 +1,7 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './core/services/auth-guard.service';
 import { ContactUsComponent } from './contactUs/contactUs.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { HomeComponent } from './home/home.component';
@@ -10,19 +10,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { NgModule } from '@angular/core';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterFormComponent } from './register/register-form.component';
-
-// import { LoginComponent } from './login/login.component';
-// import { LoginFormComponent } from './login/components/login-form.component';
-
-// import { AuthGuard } from './route-guard.service';
-
-
-// const routes: Routes = [
-//     //   { path: '', redirectTo: 'home', pathMatch: 'full' },
-//     // { path: '', redirectTo: 'login', pathMatch: 'full' },
-//     { path: 'login', component: LoginFormComponent },
-//     //   { path: 'users', loadChildren: './users/users.module#UsersModule' }
-// ];
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

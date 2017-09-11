@@ -109,8 +109,9 @@
             return result;
         }
 
-        public long CreateEmployee(Employee newEmployee, IEnumerable<long> teamIds)
+        public EmployeeViewModel CreateEmployee(Employee newEmployee, IEnumerable<long> teamIds)
         {
+            
             var teams = this.data.TeamRepository
                 .All()
                 .Where(t => t.IsDeleted == false && teamIds.Any(x => x == t.Id))
@@ -124,7 +125,18 @@
             this.data.EmployeeRepository.Add(newEmployee);
             this.data.SaveChanges();
 
-            return newEmployee.Id;
+            return new EmployeeViewModel()
+            {
+                Id = newEmployee.Id,
+                Username = newEmployee.Username,
+                FirstName = newEmployee.FirstName,
+                LastName = newEmployee.LastName,
+                Age = newEmployee.Age,
+                Email = newEmployee.Email,
+                ManagerId = newEmployee.ManagerId,
+                PositionId = newEmployee.PositionId,
+                CreatedOn = newEmployee.CreatedOn
+            };
         }
 
         public long DoesEmployeeExists(string userName, string passWord)

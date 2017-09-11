@@ -49,6 +49,6 @@ export class DepartmentDetailsComponent implements OnInit {
   }
 
   private GetDepartmentId(): number {
-    return this.activatedRoute.snapshot.params['id'];
+    return +this.activatedRoute.snapshot.params['id'];
   }
 }

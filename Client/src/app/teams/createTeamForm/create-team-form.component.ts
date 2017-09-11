@@ -55,13 +55,10 @@ export class CreateTeamFormComponent implements OnInit, OnChanges {
   }
 
   private onSubmit() {
-    console.log('submit');
-    console.log(this.teamForm.value);
     const data = new TeamCreateModel();
     data.TeamName = this.teamForm.value.name;
     data.DepartmentId = this.teamForm.value.departmentId;
     data.EmployeeIds = this.teamForm.value.employees.map(e => e.id);
-    console.log(data);
     this.teamsService.createTeam(data).subscribe(() => this.ngOnInit());
   }
 

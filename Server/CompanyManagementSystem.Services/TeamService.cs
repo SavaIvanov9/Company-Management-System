@@ -58,7 +58,7 @@
             return result;
         }
 
-        public long CreateTeam(TeamCreateModel teamData)
+        public TeamViewModel CreateTeam(TeamCreateModel teamData)
         {
             var department = this.data.DepartmentRepository
                 .All()
@@ -89,7 +89,11 @@
             this.data.TeamRepository.Add(newTeam);
             this.data.SaveChanges();
 
-            return newTeam.Id;
+            return new TeamViewModel
+            {
+                Id = newTeam.Id,
+                Name = newTeam.Name
+            };
         }
 
         private IEnumerable<Employee> FindEmployees(List<long> ids)

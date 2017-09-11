@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="text-center" style="text-shadow: 2px 2px grey;">
-                <h1><strong>Добре Дошли</strong></h1>
+                <h1><strong>Welcome</strong></h1>
             </div>
         </div>
     </div>
@@ -12,7 +12,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="text-center">
-                    <strong>Име:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                    <strong>Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
                       <input type="text" [(ngModel)]="credentials.UserName" id="username">  
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="text-center">
-                    <strong>Парола:&nbsp;</strong>
+                    <strong>Password:&nbsp;</strong>
                       <input type="password" [(ngModel)]="credentials.Password" id="password">  
                 </div>
             </div>
@@ -30,14 +30,14 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="text-center">
-                    <button class="btn btn-success" (click)="logIn()">Вход в системата</button>
+                    <button class="btn btn-success" (click)="logIn()">Log in</button>
                 </div>
             </div>
         </div>
         <div class="row text-center" *ngIf="wrongUserPass">
             <div class="col-12">
                 <div class="text-center">
-                    <p style="color: darkred">Грешно потребителско име или парола!</p>
+                    <p style="color: darkred">Wrong username or password!</p>
                 </div>
             </div>
         </div>

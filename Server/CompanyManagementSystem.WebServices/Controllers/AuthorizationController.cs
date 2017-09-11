@@ -43,24 +43,15 @@
                 CreatedBy = "S",
             };
 
-            var id = this.employeeService.CreateEmployee(newEmployee, registerData.TeamIds);
+            var employee = this.employeeService.CreateEmployee(newEmployee, registerData.TeamIds);
             //var cookie = this.cookieService.CreateCookie(newEmployee.Username, newEmployee.Password, id);
-            var cookie = this.CreateCookie(newEmployee.Username, newEmployee.Password, id);
+            var cookie = this.CreateCookie(newEmployee.Username, newEmployee.Password, employee.Id);
             return this.Ok(cookie);
         }
 
         [HttpPost("LogIn")]
         public IActionResult LogIn([FromBody]LogInModel loginData)
         {
-            //var cookie = this.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
-
-            //if (!this.cookieService.ValidateCookie(cookie))
-            //{
-            //    return this.BadRequest("Invalid cookie!");
-            //}
-
-            //this.cookieService.ExtendCookie(cookie);
-
             var id = this.employeeService.DoesEmployeeExists(loginData.Username, loginData.Password);
 
             if (id <= 0)

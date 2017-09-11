@@ -16,9 +16,6 @@ export class DepartmentsComponent implements OnInit {
   constructor(private departmentsService: DepartmentsService) { }
 
   ngOnInit() {
-    // this.departmentsService
-    //   .getDepartments()
-    //   .then(departments => this.departments = departments);
     this.GetDepartments();
   }
 

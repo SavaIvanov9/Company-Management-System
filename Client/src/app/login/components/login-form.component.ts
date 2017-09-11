@@ -19,7 +19,6 @@ export class LoginFormComponent implements OnInit {
     private str: string;
     private credentials: Credentials;
     private isLogging: boolean;
-    // private authLoaded: boolean;
     private wrongUserPass: boolean;
     private cookie: Cookie;
 
@@ -32,7 +31,6 @@ export class LoginFormComponent implements OnInit {
 
     ngOnInit() {
         this.isLogging = false;
-        // this.authLoaded = false;
         this.wrongUserPass = false;
     }
 
@@ -42,7 +40,7 @@ export class LoginFormComponent implements OnInit {
             .subscribe((cookie) => {
                 this.setCookie(cookie.content);
                 this.authService.loggedInUserId = cookie.UserId;
-                this.router.navigate(['/home'])
+                this.router.navigate(['/home']);
             },
             error => this.wrongCredentials(error),
             () => { });

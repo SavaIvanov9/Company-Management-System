@@ -18,17 +18,6 @@ export class DepartmentDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-
-    // const id = + this.activatedRoute.snapshot.params['id'];
-
-    // this.departmentsSevice
-    //   .getDepartmentById(id)
-    //   .then(dep => {
-    //     this.dep = dep
-    //     this.teams = dep.teams
-    //   }
-    //   );
-
     const id = this.GetDepartmentId();
     this.GetDepartmentDetails(id);
     this.GetTeams(id);

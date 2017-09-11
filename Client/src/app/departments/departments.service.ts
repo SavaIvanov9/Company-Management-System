@@ -9,12 +9,12 @@ import { Team } from '../teams/models/team.model';
 
 import { DomainUrl } from '../shared/constants';
 
+
 @Injectable()
 export class DepartmentsService {
 
   private departmentsUrl: string = DomainUrl + 'api/department';
   private teamsUrl: string = DomainUrl + 'api/team';
-  // private http: HttpClient = new HttpClient();
 
   constructor(private http: HttpClient) {
   }

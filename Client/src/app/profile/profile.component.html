@@ -1,18 +1,18 @@
 <div class="tabular-form">
-  <legend align="center">{{user.username}}'s Profile</legend>
+  <legend align="center">{{user.username}}'s profile</legend>
 </div>
 
-<div class="container">
+<div #f class="container">
   <div class="panel-group" id="accordion">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <p align="left" appStrongItem>First name: {{user.firstName}}</p>
-          <p align="left" appStrongItem>Last name: {{user.lastName}}</p>
+          <p align="left" appStrongItem>First name: {{user.firstName | upperCaseFirstLetter}}</p>
+          <p align="left" appStrongItem>Last name: {{user.lastName | upperCaseFirstLetter}}</p>
           <p align="left" appStrongItem>Age: {{user.age}}</p>
           <p align="left" appStrongItem>E-mail: {{user.email}}</p>
-          <p align="left" appStrongItem>Manager name: {{user.managerName}}</p>
-          <p align="left" appStrongItem>Position: {{user.positionName}}</p>
+          <p align="left" appStrongItem>Manager name: {{user.managerName | upperCaseFirstLetter}}</p>
+          <p align="left" appStrongItem>Position: {{user.positionName | upperCaseFirstLetter}}</p>
           <label name="teamName"> Teams:</label>
           <p align="left" name="teamName" appStrongItem *ngFor="let team of user.teams">- {{team}}</p>
         </h4>

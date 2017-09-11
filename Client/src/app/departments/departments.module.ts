@@ -1,10 +1,11 @@
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DepartmentDetailsComponent } from './department-details/department-details.component';
+
+import { HttpClient } from '../core/services/http-client';
+import { DepartmentsService } from './departments.service';
 import { DepartmentsComponent } from './departments.component';
 import { DepartmentsRoutingModule } from './departments-routing.module';
-import { DepartmentsService } from './departments.service';
-import { NgModule } from '@angular/core';
-import { HttpClient } from '../core/services/http-client';
+import { DepartmentDetailsComponent } from './department-details/department-details.component';
 
 @NgModule({
   imports: [

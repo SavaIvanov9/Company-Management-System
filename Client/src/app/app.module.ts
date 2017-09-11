@@ -1,62 +1,72 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { AboutUsComponent } from './aboutUs/aboutUs.component';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { AuthGuard } from './core/services/auth-guard.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { ContactUsComponent } from './contactUs/contactUs.component';
-import { CookieService } from 'ngx-cookie-service';
-import { DepartmentsModule } from './departments/departments.module';
-import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
-import { LoginFormComponent } from './login/components/login-form.component';
-import { LoginService } from './login/services/login.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
+
+// Modules
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { DepartmentsModule } from './departments/departments.module';
+
+// Components
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactUsComponent } from './contactUs/contactUs.component';
 import { RegisterFormComponent } from './register/register-form.component';
+import { LoginFormComponent } from './login/components/login-form.component';
+
+// Pipes and Directives
 import { StrongItemDirective } from './shared/strongItem.directive';
-import { TeamsService } from './teams/services/teams.service';
 import { UnderlineItemDirective } from './shared/underlineItem.directive';
-import { RegisterService } from './register/services/register.service';
+import { UpperCaseFirstLetterPipe } from './shared/upperCase-firstLetter.pipe';
+
+// Services
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './core/services/auth.service';
+import { LoginService } from './login/services/login.service';
+import { TeamsService } from './teams/services/teams.service';
+import { AuthGuard } from './core/services/auth-guard.service';
 import { ProfileService } from './profile/services/profile.service';
+import { RegisterService } from './register/services/register.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LogoutComponent,
     AboutUsComponent,
+    ProfileComponent,
     ContactUsComponent,
     LoginFormComponent,
-    ProfileComponent,
-    LogoutComponent,
+    StrongItemDirective,
     RegisterFormComponent,
     UnderlineItemDirective,
-    StrongItemDirective
+    UpperCaseFirstLetterPipe
 ],
   exports: [
+    StrongItemDirective,
     UnderlineItemDirective,
-    StrongItemDirective
+    UpperCaseFirstLetterPipe
   ],
   imports: [
-    AppRoutingModule,
-    BrowserModule,
-    DepartmentsModule,
     HttpModule,
-    ReactiveFormsModule,
     FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    DepartmentsModule,
+    ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [
     AuthGuard,
+    AuthService,
+    LoginService,
     TeamsService,
     CookieService,
-    LoginService,
-    RegisterService,
-    AuthService,
-    ProfileService
+    ProfileService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 

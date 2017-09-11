@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appUnderlineItem]'
 })
 export class UnderlineItemDirective {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef, private rend: Renderer2) { }
 
   @HostListener('mouseenter') onMouseEnter() {
     this.underlineOn();
@@ -16,7 +16,7 @@ export class UnderlineItemDirective {
   }
 
   private underlineOn() {
-    this.elementRef.nativeElement.style = 'text-decoration: underline';
+    this.rend.setStyle(this.elementRef.nativeElement, 'text-decoration', 'underline');
   }
 
   private underlineOff() {

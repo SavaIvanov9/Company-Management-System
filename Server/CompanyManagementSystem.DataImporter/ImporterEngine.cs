@@ -16,9 +16,9 @@
 
         public void Start()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
-            this.InsertTestData();
-            this.DisplayStatus();
+            // Database.SetInitializer(new DropCreateDatabaseAlways<ManagementSystemDbContext>());
+            // this.InsertTestData();
+            // this.DisplayStatus();
 
             Console.WriteLine(this.data.EmployeeRepository.All().FirstOrDefault().Teams.Count);
         }

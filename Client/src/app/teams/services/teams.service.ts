@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { DomainUrl } from '../../shared/constants';
 
-import { HttpClient } from '../../core/services/http-client'
+import { HttpClient } from '../../core/services/http-client';
 import { Team } from '../models/team.model';
 import { User } from '../../profile/models/user.model';
 import { TeamCreateModel } from '../models/teamCreate.model';

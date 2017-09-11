@@ -16,9 +16,7 @@ import { AuthService } from '../core/services/auth.service';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent implements OnInit, OnChanges {
-  //private emailRegEx: string = '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$';
-  registerForm;
+export class RegisterFormComponent implements OnInit, OnChanges { registerForm;
 
   employee = {
     teams: []
@@ -110,7 +108,6 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
   private setTeams(teams) {
     const teamsFGs = teams.map(team => this.fb.group(team));
-    // const employeeFGs = employees.map(emp => emp.id);
     const teamsFormArray = this.fb.array(teamsFGs);
     this.registerForm.setControl('teams', teamsFormArray);
   }
@@ -120,7 +117,6 @@ export class RegisterFormComponent implements OnInit, OnChanges {
   }
 
   addTeam() {
-    //this.registerForm.teams.push(id);
     this.teams.push(this.fb.group({ id: '' }));
   }
 }

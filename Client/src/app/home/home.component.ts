@@ -17,20 +17,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        // this.items = [
-        //     { label: 'New', icon: 'fa-plus' },
-        //     { label: 'Open', icon: 'fa-download' },
-        //     { label: 'Undo', icon: 'fa-refresh' }
-        // ];
-
-        // this.items = [
-        //     { label: 'Stats', icon: 'fa-bar-chart' },
-        //     { label: 'Calendar', icon: 'fa-calendar' },
-        //     { label: 'Documentation', icon: 'fa-book' },
-        //     { label: 'Support', icon: 'fa-support' },
-        //     { label: 'Social', icon: 'fa-twitter' }
-        // ];
     }
 
     HideNav() {

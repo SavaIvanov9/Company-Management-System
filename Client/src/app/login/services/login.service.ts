@@ -12,15 +12,7 @@ import { HttpClient } from '../../core/services/http-client';
 
 @Injectable()
 export class LoginService {
-
-    // private tokenUrl: string = DomainUrl + 'Token';
-    // private identityURL: string = DomainUrl + 'api/account/identity';
-    // private logoutUrl: string = DomainUrl + 'api/account/logout';
-
     private authUrl: string = DomainUrl + 'api/Auth';
-
-    // private token: string;
-    // private username: Observable<string>;
 
     constructor(private http: HttpClient) {
     }

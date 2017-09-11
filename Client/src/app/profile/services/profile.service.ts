@@ -8,7 +8,6 @@ import { HttpClient } from '../../core/services/http-client';
 
 @Injectable()
 export class ProfileService {
-    //private employeeUrl: string = DomainUrl + 'api/Employee';
     private profileUrl: string = DomainUrl + 'api/Auth/';
 
     constructor(private http: HttpClient) {

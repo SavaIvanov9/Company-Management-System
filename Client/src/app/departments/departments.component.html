@@ -3,7 +3,7 @@
   <div class="container-cat" *ngFor="let dep of departments">
     <div class="row">
       <div class="col-md-12" class="some">
-        <a [routerLink]="['/departments', dep.id]" class="col-1-4">
+        <a [routerLink]="['/departments', dep.id]" class="col-1-4" appUnderlineItem>
           <span class="spName"><strong>{{dep.name}}</strong></span>
         </a>
         <hr>
